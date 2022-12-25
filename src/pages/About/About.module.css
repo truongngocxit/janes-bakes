@@ -1,0 +1,113 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  gap: 10rem;
+}
+
+.heroSection {
+  margin: 5rem 12rem 0 12rem;
+}
+
+.heroDescription {
+}
+
+.heroDescription h2,
+.missionsSection h2,
+.ctaSection h2 {
+  font-size: 4.8rem;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.heroDescription p {
+  font-size: 1.8rem;
+}
+
+.heroSection {
+  display: grid;
+  grid-template-columns: 1fr minmax(min-content, 1fr);
+}
+
+.heroImageContainer {
+  text-align: center;
+}
+
+.heroImageContainer img {
+  width: 50%;
+}
+
+.missionsSection {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0 12rem;
+  column-gap: 4rem;
+  row-gap: 5rem;
+}
+
+.missionsSection h2 {
+  grid-column: 1 / -1;
+  justify-self: center;
+}
+
+.missionsSection svg {
+  width: 4rem;
+  height: 4rem;
+  stroke: var(--color-primary);
+  margin-bottom: 1.5rem;
+}
+
+.missionItem h3 {
+  font-size: 2.8rem;
+  color: var(--color-primary);
+}
+
+.missionItem p {
+  font-size: 1.8rem;
+}
+
+.ctaSection {
+  background-color: var(--color-primary);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  padding: 6rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctaText p,
+.ctaText h2 {
+  color: #fff;
+}
+
+.ctaText {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ctaText p {
+  font-size: 1.8rem;
+}
+
+.ctaForm {
+  display: flex;
+  gap: 2rem;
+}
+
+.ctaForm input {
+  border: none;
+  border-radius: 0.8rem;
+  width: 35rem;
+  height: 5rem;
+}
+
+.ctaForm button {
+  border: none;
+  background-color: #fff;
+  padding: 0 4rem;
+  color: var(--color-primary);
+  text-transform: uppercase;
+  border-radius: 0.8rem;
+  font-size: 1.8rem;
+}

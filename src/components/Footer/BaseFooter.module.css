@@ -1,27 +1,18 @@
 .footerContainer {
   z-index: 50;
-  width: 100vw;
+  /* width: 100vw; */
   height: 60%;
   background-color: #fff;
-  box-shadow: var(--box-shadow-up);
+  /* box-shadow: var(--box-shadow-up); */
   border-radius: 0.8rem 0.8rem 0 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   padding: 8rem 6rem 3rem 6rem;
   justify-items: center;
-  row-gap: 2rem;
+  row-gap: 4rem;
+
   transition: all 0.4s;
   /* Position */
-  position: absolute;
-  bottom: 0;
-}
-
-.footerOn {
-  transform: translateY(0);
-}
-
-.footerOff {
-  transform: translateY(100%);
 }
 
 .logoSection {

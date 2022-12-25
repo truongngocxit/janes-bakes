@@ -1,8 +1,16 @@
 .navBar {
-  margin: 3em 10rem;
+  padding: 3em 10rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.navBarBackground {
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
 }
 
 .navBarLogo {

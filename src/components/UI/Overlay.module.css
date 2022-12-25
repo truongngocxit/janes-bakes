@@ -1,0 +1,21 @@
+.overlay {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(0.5rem);
+  z-index: 20;
+  transition: all 0.3s;
+}
+
+.overlayOff {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.overlayOn {
+  visibility: visible;
+  opacity: 1;
+}

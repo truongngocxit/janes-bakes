@@ -1,13 +1,12 @@
 import classes from "./GeneralButton.module.css";
+import { Link } from "react-router-dom";
 
-const GeneralButton = function ({ children, isMainBtn = true }) {
+const GeneralButton = function ({ children, isMainBtn = true, to }) {
   const { btnContainer, btnText, btnMain, btnSub } = classes;
   return (
-    <div className={`${btnContainer} ${isMainBtn ? btnMain : btnSub}`}>
-      <a href="#" className={btnText}>
-        {children}
-      </a>
-    </div>
+    <Link to={to} className={`${btnContainer} ${isMainBtn ? btnMain : btnSub}`}>
+      <span className={btnText}>{children}</span>
+    </Link>
   );
 };
 

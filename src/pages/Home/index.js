@@ -19,14 +19,16 @@ const Home = function () {
         <div className={homeMainContent}>
           <h1 className={homeHeading}>Bake with Love</h1>
           <div className={btnsContainer}>
-            <GeneralButton>Shop now</GeneralButton>
-            <GeneralButton isMainBtn={false}>About me</GeneralButton>
+            <GeneralButton to="store">Shop now</GeneralButton>
+            <GeneralButton to="about" isMainBtn={false}>
+              About me
+            </GeneralButton>
           </div>
         </div>
       </main>
       <ImagesCarousel />
       <BottomNavBar />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 };

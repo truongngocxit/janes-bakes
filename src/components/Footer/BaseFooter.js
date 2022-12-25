@@ -1,25 +1,9 @@
-import classes from "./Footer.module.css";
+import classes from "./BaseFooter.module.css";
 import MainLogoSVG from "../UI/MainLogoSVG";
 import Instagram from "../UI/InstagramSVG";
 import Facebook from "../UI/FacebookSVG";
-import CloseSVG from "../UI/CloseSVG";
-import Overlay from "../UI/Overlay";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { footerActions } from "../../reduxStore/footer-display";
-import { createPortal } from "react-dom";
 
-const Footer = function () {
-  const dispatch = useDispatch();
-  const footerIsDisplay = useSelector(
-    (state) => state.footerDisplay.footerDisplay
-  );
-
-  const handleCloseFooter = function () {
-    console.log("close");
-    dispatch(footerActions.offFooter());
-  };
-
+const Footer = function ({ addedFooterClassName }) {
   const {
     footerContainer,
     logoSection,
@@ -31,21 +15,9 @@ const Footer = function () {
     navContainer,
     navItem,
     socialIcons,
-    closeIcon,
-    footerOn,
-    footerOff,
   } = classes;
   return (
-    <div
-      className={`${footerContainer} ${footerIsDisplay ? footerOn : footerOff}`}
-    >
-      {/* Portal for Overlay */}
-      {createPortal(
-        <Overlay isDisplay={footerIsDisplay} />,
-        document.getElementById("overlay-root")
-      )}
-      {/* End portal */}
-      <CloseSVG className={closeIcon} onClick={handleCloseFooter} />
+    <div className={`${footerContainer} ${addedFooterClassName}`}>
       <div className={logoSection}>
         <MainLogoSVG className={footerLogo} />
         <h2>Jane's Bakes</h2>

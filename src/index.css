@@ -37,6 +37,7 @@ body {
   color: var(--color-gray-primary);
   line-height: 1.6;
   font-weight: 400;
+  /* height: 100vh; */
 }
 
 /* body {

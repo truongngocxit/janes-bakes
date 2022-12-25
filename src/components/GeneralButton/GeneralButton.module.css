@@ -4,6 +4,7 @@
   position: relative;
   cursor: pointer;
   transition: all 0.4s;
+  text-decoration: none;
 }
 
 .btnMain {
@@ -39,8 +40,6 @@
 
 .btnText {
   font-size: 2rem;
-
-  text-decoration: none;
 }
 
 .btnMain .btnText {
