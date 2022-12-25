@@ -1,0 +1,31 @@
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 2rem;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.homeMain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.homeMainContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+.homeHeading {
+  color: var(--color-primary);
+  font-size: 5.2rem;
+}
+
+.btnsContainer {
+  display: flex;
+  gap: 2rem;
+}

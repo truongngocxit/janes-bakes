@@ -1,0 +1,38 @@
+.cartBtnContainer {
+  padding: 1rem 2rem;
+  background-color: var(--color-primary);
+  border-radius: var(--border-radius);
+  position: relative;
+  cursor: pointer;
+}
+
+.cartBtnContainer::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  border-radius: var(--border-radius);
+  top: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.cartBtnContainer:hover::before {
+  filter: blur(0.5rem);
+}
+
+.cartBtnContainer:hover .cartIcon {
+  transform: rotate(-20deg);
+}
+
+.cartIcon {
+  display: inline-block;
+  stroke: #fff;
+  width: 2.4rem;
+  height: 2.4rem;
+  transform: rotate(0);
+  transition: all 0.3s;
+}
