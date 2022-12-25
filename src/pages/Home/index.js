@@ -26,7 +26,7 @@ const Home = function () {
       </main>
       <ImagesCarousel />
       <BottomNavBar />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

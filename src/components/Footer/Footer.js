@@ -1,5 +1,7 @@
 import classes from "./Footer.module.css";
 import MainLogoSVG from "../UI/MainLogoSVG";
+import Instagram from "../UI/InstagramSVG";
+import Facebook from "../UI/FacebookSVG";
 
 const Footer = function () {
   const {
@@ -9,8 +11,10 @@ const Footer = function () {
     otherChannelsSection,
     footerLogo,
     copyrightSection,
-    nav,
+    navHeading,
+    navContainer,
     navItem,
+    socialIcons,
   } = classes;
   return (
     <div className={footerContainer}>
@@ -19,8 +23,8 @@ const Footer = function () {
         <h2>Jane's Bakes</h2>
       </div>
       <nav className={navSection}>
-        <h3 className={nav}>Navigations</h3>
-        <ul>
+        <h3 className={navHeading}>Navigations</h3>
+        <ul className={navContainer}>
           <li>
             <a href="#" className={navItem}>
               All cakes
@@ -40,6 +44,10 @@ const Footer = function () {
       </nav>
       <nav className={otherChannelsSection}>
         <h3>Other Channels</h3>
+        <div className={socialIcons}>
+          <Facebook className={socialIcons} />
+          <Instagram className={socialIcons} />
+        </div>
       </nav>
       <div className={copyrightSection}>
         <p>©2022, Jane's Bakes. All rights reserved</p>

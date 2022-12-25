@@ -4,13 +4,13 @@
   height: 100vh;
   gap: 2rem;
   justify-content: space-between;
-  overflow: hidden;
 }
 
 .homeMain {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  /* overflow: hidden; */
 }
 
 .homeMainContent {

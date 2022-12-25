@@ -1,17 +1,83 @@
 .footerContainer {
   z-index: 10;
   width: 100vw;
-  height: 50%;
+  height: 55%;
   background-color: #fff;
-  position: fixed;
-  bottom: 0;
   box-shadow: var(--box-shadow-up);
   border-radius: var(--border-radius);
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  padding: 6rem 6rem 3rem 6rem;
+  justify-items: center;
+  row-gap: 2rem;
+
+  /* Position */
+  /* position: absolute;
+  bottom: 0;
+  transform: translateY(100%); */
+}
+
+.logoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  gap: 2rem;
 }
 
 .footerLogo {
-  width: 4rem;
-  height: 4rem;
+  width: 8rem;
+  height: 8rem;
+}
+
+.logoSection h2 {
+  font-size: 3.6rem;
+  color: var(--color-primary);
+}
+
+.navSection {
+  display: flex;
+  flex-direction: column;
+
+  justify-content: start;
+}
+
+.footerContainer h3 {
+  font-size: 3.2rem;
+  color: var(--color-primary);
+  font-weight: 300;
+}
+
+.navContainer {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  text-decoration: none;
+  gap: 1rem;
+}
+
+.navItem {
+  text-decoration: none;
+  font-size: 2rem;
+  color: inherit;
+  font-weight: 300;
+}
+
+.otherChannelsSection {
+}
+
+.socialIcons {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialIcons {
+  height: 8rem;
+  width: 8rem;
+}
+
+.copyrightSection {
+  grid-column: 1 / -1;
+  align-self: end;
+  font-size: 1.6rem;
 }
