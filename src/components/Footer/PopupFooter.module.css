@@ -81,13 +81,34 @@
   font-size: 1.6rem;
 }
 
-.closeIcon {
-  stroke: var(--color-primary);
-  width: 4rem;
-  height: 4rem;
-
+.closeIconContainer {
   position: absolute;
   top: 10%;
   left: 5%;
   z-index: 100;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.closeIcon {
+  stroke: var(--color-primary);
+  width: 80%;
+  height: 80%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.closeIconContainer:hover {
+  background-color: var(--color-tint-4);
+  border-radius: 50%;
+}
+
+.closeIconContainer:hover .closeIcon {
+  transform: scale(-0.75);
 }

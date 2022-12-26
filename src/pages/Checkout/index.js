@@ -5,18 +5,16 @@ import CheckoutForm from "../../components/CheckoutForm/CheckoutForm";
 import CartItem from "../../components/CartItem/CartItem";
 
 const Checkout = function () {
+  console.log("Render checkout");
   const {
     checkout,
     checkoutContainer,
     cartSummary,
     cartSummaryHeading,
     checkoutFormContainer,
-    checkoutBottomNav,
   } = classes;
   return (
     <div className={checkout}>
-      <TopNavBar hasBackground={true} />
-
       <div className={checkoutContainer}>
         <div>
           <h1 className={cartSummaryHeading}>Your Cart</h1>
@@ -31,9 +29,6 @@ const Checkout = function () {
         <div className={checkoutFormContainer}>
           <CheckoutForm />
         </div>
-      </div>
-      <div className={checkoutBottomNav}>
-        <BottomNavBar />
       </div>
     </div>
   );

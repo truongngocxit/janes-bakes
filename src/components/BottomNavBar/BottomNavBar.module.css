@@ -1,5 +1,5 @@
 .bottomNavContainer {
-  height: 8rem;
+  /* height: 8rem; */
   width: 100%;
   /* position: fixed; */
   /* bottom: 0; */
@@ -11,8 +11,30 @@
   padding: 0 8rem;
 }
 
+.iconContainer {
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--border-radius);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
 .hamburgerIcon {
   stroke: var(--color-primary);
-  width: 4rem;
-  height: 4rem;
+  width: 80%;
+  height: 80%;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.iconContainer:hover {
+  background-color: var(--color-tint-4);
+  border-radius: 50%;
+}
+
+.iconContainer:hover .hamburgerIcon {
+  transform: scale(-0.75);
 }

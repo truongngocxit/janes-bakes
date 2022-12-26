@@ -7,11 +7,9 @@ const footerSlice = createSlice({
   },
   reducers: {
     onFooter(state) {
-      console.log("On");
       state.footerDisplay = true;
     },
     offFooter(state) {
-      console.log("off");
       state.footerDisplay = false;
     },
   },

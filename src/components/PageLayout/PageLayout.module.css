@@ -1,0 +1,11 @@
+.pageLayout {
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 8rem 1fr 8rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* .pageBody {
+  overflow-y: scroll;
+} */

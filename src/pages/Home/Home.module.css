@@ -1,17 +1,11 @@
 .home {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  gap: 2rem;
-  justify-content: space-between;
+  height: 100%;
+  gap: 1rem;
+  justify-content: space-evenly;
   position: relative;
   overflow: hidden;
-}
-
-.homeMain {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .homeMainContent {

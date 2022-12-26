@@ -14,11 +14,16 @@ const Footer = function () {
   );
 
   const handleCloseFooter = function () {
-    console.log("close");
     dispatch(footerActions.offFooter());
   };
 
-  const { footerContainer, closeIcon, footerOn, footerOff } = classes;
+  const {
+    footerContainer,
+    closeIcon,
+    footerOn,
+    footerOff,
+    closeIconContainer,
+  } = classes;
   return (
     <div
       className={`${footerContainer} ${footerIsDisplay ? footerOn : footerOff}`}
@@ -29,7 +34,9 @@ const Footer = function () {
         document.getElementById("overlay-root")
       )}
       {/* End portal */}
-      <CloseSVG className={closeIcon} onClick={handleCloseFooter} />
+      <div className={closeIconContainer} onClick={handleCloseFooter}>
+        <CloseSVG className={closeIcon} />
+      </div>
       <BaseFooter />
     </div>
   );

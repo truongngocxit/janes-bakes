@@ -24,49 +24,39 @@ const Store = function () {
     filterList,
     filterItem,
     cakeIcon,
-    setting,
-    hamburgerIcon,
   } = classes;
   return (
-    <div className={store}>
-      <div className={storeContainer}>
-        <TopNavBar hasBackground={true} />
-        <menu className={storeMenu}>
-          <SearchForm />
-          <ul className={filterList}>
-            <li className={filterItem}>
-              <Cake className={cakeIcon} />
-              <a href="#">All</a>
-            </li>
-            <li className={filterItem}>
-              <Cake className={cakeIcon} />
-              <a href="#">Cheese cakes</a>
-            </li>
-            <li className={filterItem}>
-              <Cake className={cakeIcon} />
-              <a href="#">Birthday cakes</a>
-            </li>
-            <li className={filterItem}>
-              <Cake className={cakeIcon} />
-              <a href="#">Others</a>
-            </li>
-          </ul>
-          <div className={setting}>
-            <Hamburger className={hamburgerIcon} onClick={handleOpenFooter} />
-            <ThemeButton />
-          </div>
-        </menu>
-        <div className={storeFront}>
-          <StoreItem />
-          <StoreItem />
-          <StoreItem />
-          <StoreItem />
-          <StoreItem />
-          <StoreItem />
-          <StoreItem />
-        </div>
+    <div className={storeContainer}>
+      <menu className={storeMenu}>
+        <SearchForm />
+        <ul className={filterList}>
+          <li className={filterItem}>
+            <Cake className={cakeIcon} />
+            <a href="#">All</a>
+          </li>
+          <li className={filterItem}>
+            <Cake className={cakeIcon} />
+            <a href="#">Cheese cakes</a>
+          </li>
+          <li className={filterItem}>
+            <Cake className={cakeIcon} />
+            <a href="#">Birthday cakes</a>
+          </li>
+          <li className={filterItem}>
+            <Cake className={cakeIcon} />
+            <a href="#">Others</a>
+          </li>
+        </ul>
+      </menu>
+      <div className={storeFront}>
+        <StoreItem />
+        <StoreItem />
+        <StoreItem />
+        <StoreItem />
+        <StoreItem />
+        <StoreItem />
+        <StoreItem />
       </div>
-      <PopupFooter />
     </div>
   );
 };

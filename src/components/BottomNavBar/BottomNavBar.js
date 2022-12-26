@@ -9,10 +9,12 @@ const BottomNavBar = function () {
   const handleOpenFooter = function () {
     dispatch(footerActions.onFooter());
   };
-  const { bottomNavContainer, hamburgerIcon } = classes;
+  const { bottomNavContainer, iconContainer, hamburgerIcon } = classes;
   return (
     <div className={bottomNavContainer}>
-      <Hamburger className={hamburgerIcon} onClick={handleOpenFooter} />
+      <div className={iconContainer} onClick={handleOpenFooter}>
+        <Hamburger className={hamburgerIcon} />
+      </div>
       <ThemeButton />
     </div>
   );
