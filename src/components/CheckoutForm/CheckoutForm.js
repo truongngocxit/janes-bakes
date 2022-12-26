@@ -1,7 +1,14 @@
 import classes from "./CheckoutForm.module.css";
 
 const CheckoutForm = function () {
-  const { checkoutForm, checkoutInput, price, checkoutBtn } = classes;
+  const {
+    checkoutForm,
+    checkoutInput,
+    checkoutPriceContainer,
+    priceLabel,
+    priceText,
+    checkoutBtn,
+  } = classes;
   return (
     <form className={checkoutForm}>
       <div className={checkoutInput}>
@@ -17,13 +24,15 @@ const CheckoutForm = function () {
         <input id="phone" />
       </div>
 
-      <div className={price}>
-        <p>Total</p>
-        <p>$25.99</p>
+      <div className={checkoutPriceContainer}>
+        <p className={priceLabel}>Total</p>
+        <p className={priceText}>$25.99</p>
       </div>
 
-      <div className={checkoutBtn}>
-        <button type="submit">Proceed</button>
+      <div>
+        <button type="submit" className={checkoutBtn}>
+          Proceed
+        </button>
       </div>
     </form>
   );

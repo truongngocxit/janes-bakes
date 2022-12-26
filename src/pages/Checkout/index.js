@@ -5,25 +5,36 @@ import CheckoutForm from "../../components/CheckoutForm/CheckoutForm";
 import CartItem from "../../components/CartItem/CartItem";
 
 const Checkout = function () {
-  const { checkout, checkoutContainer, cart } = classes;
+  const {
+    checkout,
+    checkoutContainer,
+    cartSummary,
+    cartSummaryHeading,
+    checkoutFormContainer,
+    checkoutBottomNav,
+  } = classes;
   return (
     <div className={checkout}>
       <TopNavBar hasBackground={true} />
+
       <div className={checkoutContainer}>
-        <div className={cart}>cart</div>
         <div>
-          <CheckoutForm />
-        </div>
-        <div>
-          <h1>Your Cart</h1>
-          <div>
+          <h1 className={cartSummaryHeading}>Your Cart</h1>
+          <div className={cartSummary}>
             <CartItem />
             <CartItem />
+            {/* <CartItem />
             <CartItem />
+            <CartItem /> */}
           </div>
         </div>
+        <div className={checkoutFormContainer}>
+          <CheckoutForm />
+        </div>
       </div>
-      <BottomNavBar />
+      <div className={checkoutBottomNav}>
+        <BottomNavBar />
+      </div>
     </div>
   );
 };

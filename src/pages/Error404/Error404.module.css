@@ -1,4 +1,4 @@
-.home {
+.errorPage {
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -8,25 +8,36 @@
   overflow: hidden;
 }
 
-.homeMain {
+.errorMain {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.homeMainContent {
+.errorMainContent {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
 }
 
-.homeHeading {
+.errorMainContent {
+  font-size: 1.8em;
+}
+
+.errorHeading {
   color: var(--color-primary);
   font-size: 5.2rem;
 }
 
 .btnsContainer {
   display: flex;
+  flex-direction: column;
   gap: 2rem;
+  align-items: center;
+}
+
+.btnsContainer a {
+  font-size: 1.8rem;
+  color: var(--color-primary);
 }

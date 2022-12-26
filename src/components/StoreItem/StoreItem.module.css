@@ -5,7 +5,7 @@
   display: grid;
   /* grid-template-rows: repeat(2, minmax(min-content, max-content)); */
   grid-template-rows: repeat(2, 1fr);
-  z-index: 100;
+
   margin: 1rem;
 }
 
