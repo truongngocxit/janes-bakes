@@ -1,7 +1,7 @@
 .footerContainer {
   z-index: 50;
-  /* width: 100vw; */
-  height: 60%;
+  width: 100%;
+  height: 70%;
   background-color: #fff;
   /* box-shadow: var(--box-shadow-up); */
   border-radius: 0.8rem 0.8rem 0 0;
@@ -9,10 +9,10 @@
   grid-template-columns: repeat(3, 1fr);
   padding: 8rem 6rem 3rem 6rem;
   justify-items: center;
-  row-gap: 4rem;
-
-  transition: all 0.4s;
+  row-gap: 8rem;
+  position: relative;
   /* Position */
+  /* transition: all 0.3s; */
 }
 
 .logoSection {
@@ -36,7 +36,7 @@
 .navSection {
   display: flex;
   flex-direction: column;
-
+  gap: 2rem;
   justify-content: start;
 }
 
@@ -51,17 +51,13 @@
   flex-direction: column;
   list-style: none;
   text-decoration: none;
-  gap: 1rem;
-}
-
-.navItem {
-  text-decoration: none;
-  font-size: 2rem;
-  color: inherit;
-  font-weight: 300;
+  gap: 1.5rem;
 }
 
 .otherChannelsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .socialIcons {
@@ -69,23 +65,17 @@
   gap: 1rem;
 }
 
-.socialIcons {
-  height: 8rem;
-  width: 8rem;
+.socialIcons > * {
+  height: 3.6rem;
+  width: 3.6rem;
+  stroke-width: 0.1rem;
+}
+
+.socialIcon {
 }
 
 .copyrightSection {
   grid-column: 1 / -1;
   align-self: end;
   font-size: 1.6rem;
-}
-
-.closeIcon {
-  stroke: var(--color-primary);
-  width: 4rem;
-  height: 4rem;
-
-  position: absolute;
-  top: 10%;
-  left: 5%;
 }

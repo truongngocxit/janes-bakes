@@ -13,7 +13,6 @@ const About = function () {
     heroSection,
     missionsSection,
     ctaSection,
-    newsletterSection,
     heroDescription,
     heroImageContainer,
     missionItem,

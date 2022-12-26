@@ -1,5 +1,5 @@
 import classes from "./TopNavBar.module.css";
-import CartSVG from "../UI/CartSVG";
+
 import MainLogoSVG from "../UI/MainLogoSVG";
 import CartButton from "../CartButton/CartButton";
 

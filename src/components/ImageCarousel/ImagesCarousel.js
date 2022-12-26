@@ -6,7 +6,6 @@ import ChocolateCakeImage from "../../assets/chocolate.jpg";
 import ChouxImage from "../../assets/choux.jpg";
 
 const ImagesCarousel = function () {
-  console.log(BirthdayCakeImage);
   const { carouselContainer } = classes;
   return (
     <div className={carouselContainer}>

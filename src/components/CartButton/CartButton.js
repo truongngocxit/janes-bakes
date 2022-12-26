@@ -1,14 +1,13 @@
 import CartSVG from "../UI/CartSVG";
 import classes from "./CartButton.module.css";
+import { Link } from "react-router-dom";
 
 const CartButton = function () {
   const { cartBtnContainer, cartIcon } = classes;
   return (
-    <div className={cartBtnContainer}>
-      <a href="#">
-        <CartSVG className={cartIcon} />
-      </a>
-    </div>
+    <Link to="/store" className={cartBtnContainer}>
+      <CartSVG className={cartIcon} />
+    </Link>
   );
 };
 

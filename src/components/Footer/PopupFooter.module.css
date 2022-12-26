@@ -1,22 +1,14 @@
 .footerContainer {
-  z-index: 50;
-  width: 100vw;
-  height: 60%;
-  background-color: #fff;
-  box-shadow: var(--box-shadow-up);
-  border-radius: 0.8rem 0.8rem 0 0;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  padding: 8rem 6rem 3rem 6rem;
-  justify-items: center;
-  row-gap: 2rem;
-  transition: all 0.4s;
   /* Position */
+  width: 100%;
   position: absolute;
+  display: block;
   bottom: 0;
+  transition: all 0.3s;
 }
 
 .footerOn {
+  z-index: 100;
   transform: translateY(0);
 }
 
@@ -97,4 +89,5 @@
   position: absolute;
   top: 10%;
   left: 5%;
+  z-index: 100;
 }

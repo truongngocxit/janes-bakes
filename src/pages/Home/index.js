@@ -4,7 +4,7 @@ import GeneralButton from "../../components/GeneralButton/GeneralButton";
 import ImagesCarousel from "../../components/ImageCarousel/ImagesCarousel";
 import BottomNavBar from "../../components/BottomNavBar/BottomNavBar";
 import RadialCirle from "../../components/UI/RadialCircle";
-import Footer from "../../components/Footer/Footer";
+import PopupFooter from "../../components/Footer/PopupFooter";
 
 const Home = function () {
   const { home, homeMain, homeHeading, btnsContainer, homeMainContent } =
@@ -28,7 +28,7 @@ const Home = function () {
       </main>
       <ImagesCarousel />
       <BottomNavBar />
-      <Footer />
+      <PopupFooter />
     </div>
   );
 };
