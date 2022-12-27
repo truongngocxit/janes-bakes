@@ -10,7 +10,11 @@ const CarouselItem = function ({ carouselImageSrc, cakeName }) {
   } = classes;
   return (
     <div className={carouselItemContainer}>
-      <img className={carouselItemImage} src={carouselImageSrc} />
+      <img
+        className={carouselItemImage}
+        src={carouselImageSrc}
+        loading="lazy"
+      />
       <p className={carouselItemName}>{cakeName}</p>
       <RightArrowSVG className={rightArrow} />
     </div>

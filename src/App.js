@@ -1,4 +1,4 @@
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Store from "./pages/Store";
 import Checkout from "./pages/Checkout";
@@ -7,8 +7,6 @@ import About from "./pages/About";
 import PageLayout from "./components/PageLayout/PageLayout";
 
 function App() {
-  const params = useParams();
-  console.log(params);
   return (
     <PageLayout>
       <Routes>

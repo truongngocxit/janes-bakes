@@ -1,0 +1,62 @@
+.filterList {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.cosmetic {
+  content: "";
+  display: block;
+  height: 20%;
+  width: 0.5rem;
+  /* top: 5%; */
+  border-radius: var(--border-radius);
+  background-color: var(--color-primary);
+  left: 0;
+  position: absolute;
+  transition: all 0.3s ease-in;
+  /* transform: translateY(100%); */
+}
+
+.filterList input {
+  visibility: hidden;
+}
+
+.filterLabel {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 1.5rem 0 1.5rem 2rem;
+  cursor: pointer;
+}
+
+.filterItem {
+}
+
+.filterItem:hover {
+  background-color: var(--color-tint-3);
+}
+
+.filterItemActive {
+  background-color: var(--color-tint-3);
+}
+
+.filterItem span {
+  text-decoration: none;
+  font-size: 1.8rem;
+  color: var(--color-gray-light-2);
+  /* margin-top: 0.5rem; */
+}
+
+.cakeIcon {
+  height: 2.2rem;
+  width: 2.2rem;
+  stroke-width: 0.1rem;
+  stroke: var(--color-primary);
+}
+
+.hamburgerIcon {
+  stroke: var(--color-primary);
+  width: 4rem;
+  height: 4rem;
+}

@@ -10,7 +10,7 @@ const CartItem = function () {
       </div>
       <div className={cartItemInfo}>
         <h3>Strawberry cheesecake</h3>
-        <p>Lorem ipsum dolor sit amet, consecteturd </p>
+        <p>Lorem ipsum dolor sit amet, consecteturdfd</p>
       </div>
       <div className={cartItemPrice}>
         <h3>$25.99</h3>

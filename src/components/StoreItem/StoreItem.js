@@ -1,30 +1,35 @@
 import classes from "./StoreItem.module.css";
-import CheeseCake from "../../assets/product-images/cheesecake-product.jpg";
+import { Link } from "react-router-dom";
 
-const StoreItem = function () {
+const StoreItem = function ({ name, url, description, price, id }) {
   const {
     productItemContainer,
     productImage,
     productInfo,
     productPrice,
-    productHeading,
+    productDescription,
     productAddBtn,
   } = classes;
+
   return (
-    <div className={productItemContainer}>
+    <li className={productItemContainer}>
       <div className={productImage}>
-        <img src={CheeseCake} />
+        <img src={url} alt={name} loading="lazy" />
       </div>
       <div className={productInfo}>
-        <h3 className={productHeading}>Strawberry Cheesecake</h3>
+        <div className={productDescription}>
+          <h3>{name}</h3>
+
+          <p>{description}</p>
+        </div>
         <p className={productPrice}>
-          $25.99<span>/1p</span>
+          {price}₫<span> /1p</span>
         </p>
-        <a className={productAddBtn} href="#">
+        <Link className={productAddBtn} to="#">
           Add +
-        </a>
+        </Link>
       </div>
-    </div>
+    </li>
   );
 };
 

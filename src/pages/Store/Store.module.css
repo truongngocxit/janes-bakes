@@ -5,19 +5,6 @@
   height: 100%;
 }
 
-/* STORE FRONT */
-.storeFront {
-  justify-self: center;
-  width: 100%;
-  height: calc(100vh - 16rem);
-  padding: 4rem 6rem 5rem 6rem;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: min-content;
-  gap: 3rem;
-  overflow-y: scroll;
-}
-
 /* STORE MENU */
 
 .storeMenu {
@@ -27,45 +14,6 @@
   gap: 3rem;
   padding-top: 3rem;
   /* height: 100%; */
-}
-
-/* WILL REFACTOR LATER */
-
-.filterList {
-  display: flex;
-  flex-direction: column;
-}
-
-.filterItem {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  padding: 1.5rem 0 1.5rem 4rem;
-  /* background-color: var(--color-tint-3); */
-}
-
-.filterItem:hover {
-  background-color: var(--color-tint-3);
-}
-
-.filterItem a {
-  text-decoration: none;
-  font-size: 1.8rem;
-  color: var(--color-gray-light-2);
-  margin-top: 0.5rem;
-}
-
-.cakeIcon {
-  height: 2.2rem;
-  width: 2.2rem;
-  stroke-width: 0.1rem;
-  stroke: var(--color-primary);
-}
-
-.hamburgerIcon {
-  stroke: var(--color-primary);
-  width: 4rem;
-  height: 4rem;
 }
 
 /* END REFACTOR */

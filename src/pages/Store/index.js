@@ -1,62 +1,31 @@
-import TopNavBar from "../../components/TopNavBar/TopNavBar";
 import classes from "./Store.module.css";
 import SearchForm from "../../components/SearchForm.js/SearchForm";
-import Cake from "../../components/UI/CakeSVG";
-import Hamburger from "../../components/UI/HamburgetSVG";
-import ThemeButton from "../../components/ThemeButton/ThemeButton";
-import PopupFooter from "../../components/Footer/PopupFooter";
-import { useDispatch } from "react-redux";
-import { footerActions } from "../../reduxStore/footer-display";
-import StoreItem from "../../components/StoreItem/StoreItem";
+import StoreFilter from "../../components/StoreFilter/StoreFilter";
+import StoreFront from "../../components/StoreFront/StoreFront";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const Store = function () {
-  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const [letterQuery, setLetterQuery] = useState("");
+  const [tagQuery, setTagQuery] = useState("all");
 
-  const handleOpenFooter = function () {
-    dispatch(footerActions.onFooter());
-  };
+  //Modify url query params
+  let urlParams = `?tag=${tagQuery}`;
+  if (letterQuery.trim() !== "") urlParams += `&${letterQuery}`;
 
-  const {
-    store,
-    storeContainer,
-    storeMenu,
-    storeFront,
-    filterList,
-    filterItem,
-    cakeIcon,
-  } = classes;
+  useEffect(() => {
+    navigate(urlParams);
+  }, [navigate, urlParams]);
+
+  const { storeContainer, storeMenu } = classes;
   return (
     <div className={storeContainer}>
       <menu className={storeMenu}>
-        <SearchForm />
-        <ul className={filterList}>
-          <li className={filterItem}>
-            <Cake className={cakeIcon} />
-            <a href="#">All</a>
-          </li>
-          <li className={filterItem}>
-            <Cake className={cakeIcon} />
-            <a href="#">Cheese cakes</a>
-          </li>
-          <li className={filterItem}>
-            <Cake className={cakeIcon} />
-            <a href="#">Birthday cakes</a>
-          </li>
-          <li className={filterItem}>
-            <Cake className={cakeIcon} />
-            <a href="#">Others</a>
-          </li>
-        </ul>
+        <SearchForm filterByLetter={setLetterQuery} filterValue={letterQuery} />
+        <StoreFilter filterByTag={setTagQuery} tagValue={tagQuery} />
       </menu>
-      <div className={storeFront}>
-        <StoreItem />
-        <StoreItem />
-        <StoreItem />
-        <StoreItem />
-        <StoreItem />
-        <StoreItem />
-        <StoreItem />
-      </div>
+      <StoreFront letterFilter={letterQuery} tagFilter={tagQuery} />
     </div>
   );
 };
