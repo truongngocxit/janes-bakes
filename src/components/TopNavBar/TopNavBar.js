@@ -1,19 +1,51 @@
 import classes from "./TopNavBar.module.css";
 import MainLogoSVG from "../UI/MainLogoSVG";
-import CartButton from "../CartButton/CartButton";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import HomeSVG from "../UI/HomeSVG";
+import StoreSVG from "../UI/StoreSVG";
+import CartSVG from "../UI/CartSVG";
+import { useSelector } from "react-redux";
 
 const TopNavBar = function ({ hasBackground = false }) {
-  const { navBar, navBarLogo, logoName, mainLogo, navBarBackground } = classes;
+  const itemsQuantity = useSelector((state) => state.cart.totalQuantity);
+
+  const {
+    navBar,
+    navBarLogo,
+    logoName,
+    mainLogo,
+    navBarBackground,
+    navLinks,
+    navLink,
+    cartQuantity,
+    activeNavLink,
+  } = classes;
+
+  const navLinkStyle = function ({ isActive }) {
+    return isActive ? `${navLink} ${activeNavLink}` : navLink;
+  };
   return (
     <nav className={`${navBar} ${hasBackground ? navBarBackground : ""}`}>
-      <Link className={navBarLogo} to="/">
+      <NavLink className={navBarLogo} to="/">
         <MainLogoSVG className={mainLogo} />
 
         <h2 className={logoName}>Jane's Bakes</h2>
-      </Link>
-
-      <CartButton />
+      </NavLink>
+      <div className={navLinks}>
+        <NavLink className={navLinkStyle} to="/">
+          <HomeSVG />
+        </NavLink>
+        <NavLink className={navLinkStyle} to="store">
+          <StoreSVG />
+        </NavLink>
+        <NavLink className={navLinkStyle} to="checkout">
+          {itemsQuantity > 0 && (
+            <div className={cartQuantity}>{itemsQuantity}</div>
+          )}
+          <CartSVG />
+        </NavLink>
+      </div>
+      {/* <CartButton /> */}
     </nav>
   );
 };

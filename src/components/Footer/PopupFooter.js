@@ -29,10 +29,11 @@ const Footer = function () {
       className={`${footerContainer} ${footerIsDisplay ? footerOn : footerOff}`}
     >
       {/* Portal for Overlay */}
-      {createPortal(
-        <Overlay isDisplay={footerIsDisplay} onClick={handleCloseFooter} />,
-        document.getElementById("overlay-root")
-      )}
+      {footerIsDisplay &&
+        createPortal(
+          <Overlay isDisplay={footerIsDisplay} onClick={handleCloseFooter} />,
+          document.getElementById("overlay-root")
+        )}
       {/* End portal */}
       <div className={closeIconContainer} onClick={handleCloseFooter}>
         <CloseSVG className={closeIcon} />

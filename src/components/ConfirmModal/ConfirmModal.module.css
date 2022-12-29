@@ -1,0 +1,101 @@
+.confirmModal {
+  position: absolute;
+  width: 35%;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -30%);
+  border-radius: var(--border-radius);
+  z-index: 500;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 1.5rem 5rem 3rem;
+  align-items: center;
+  gap: 2rem;
+}
+
+.closeBtn {
+  align-self: flex-end;
+  margin-right: -3rem;
+  cursor: pointer;
+  height: 3.5rem;
+  width: 3.5rem;
+  border-radius: 50%;
+  transition: 0.1s all;
+}
+
+.closeBtn svg {
+  padding: 0.5rem;
+}
+
+.closeBtn:hover {
+  background-color: var(--color-tint-3);
+}
+
+.closeBtn:hover svg {
+  stroke: var(--color-primary);
+}
+
+.modalMessage {
+  font-size: 2.2rem;
+  text-align: center;
+}
+
+.modalMessage h3 {
+  font-weight: 400;
+}
+
+.modalActions {
+  display: flex;
+  gap: 1rem;
+}
+
+.modalActions button {
+  width: 12rem;
+  height: 5rem;
+  background: none;
+  border: none;
+
+  font-family: inherit;
+  font-size: 1.8rem;
+  border-radius: var(--border-radius);
+  color: #fff;
+  /* background-color: var(--color-primary); */
+  display: inline-block;
+  cursor: pointer;
+}
+
+.modalActions .confirmBtn {
+  box-shadow: inset 0 0 0 0.2rem var(--color-primary);
+  color: var(--color-primary);
+  transition: all 0.1s;
+}
+
+.modalActions .confirmBtn:hover {
+  background-color: var(--color-primary);
+  position: relative;
+  color: #fff;
+}
+
+.modalActions .cancelBtn {
+  background-color: var(--color-primary);
+  position: relative;
+}
+
+.modalActions .cancelBtn::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  border-radius: var(--border-radius);
+  top: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.modalActions .cancelBtn:hover::before {
+  filter: blur(0.5rem);
+}

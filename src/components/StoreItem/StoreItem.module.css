@@ -49,12 +49,42 @@
   color: var(--color-gray-light-2);
 }
 
+.productPrice span {
+  font-size: 1.6rem;
+  font-weight: 400;
+  margin-left: 1rem;
+}
+
 .productAddBtn {
-  padding: 1rem 2rem;
+  width: 4rem;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--color-primary);
   color: #fff;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 3rem;
+  font-weight: 500;
   justify-self: end;
-  border-radius: var(--border-radius);
+  border-radius: 50%;
+  position: relative;
+}
+
+.productAddBtn::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.productAddBtn:hover::before {
+  filter: blur(0.5rem);
 }

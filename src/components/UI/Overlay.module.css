@@ -10,7 +10,7 @@
   transition: all 0.3s;
 }
 
-.overlayOff {
+/* .overlayOff {
   visibility: hidden;
   opacity: 0;
 }
@@ -18,4 +18,4 @@
 .overlayOn {
   visibility: visible;
   opacity: 1;
-}
+} */

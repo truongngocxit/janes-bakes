@@ -1,19 +1,19 @@
 .themeBtnContainer {
-  width: 10rem;
-  height: 5rem;
+  width: 9rem;
+  height: 4.5rem;
   background-color: #eee;
   border: none;
   border-radius: 10rem;
-  box-shadow: var(--box-shadow);
+  display: flex;
+  align-items: center;
+  /* box-shadow: var(--box-shadow); */
 }
 
 .themeInnerBtn {
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
   background-color: #fff;
   border-radius: 50%;
-  /* transform: translateX(0.5rem); */
-  /* box-shadow: var(--box-shadow); */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +21,7 @@
 }
 
 .light {
-  transform: translateX(1rem);
+  transform: translateX(0.5rem);
 }
 
 .dark {
