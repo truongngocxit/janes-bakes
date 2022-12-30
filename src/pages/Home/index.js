@@ -1,13 +1,10 @@
 import classes from "./Home.module.css";
-import TopNavBar from "../../components/TopNavBar/TopNavBar";
 import GeneralButton from "../../components/GeneralButton/GeneralButton";
 import ImagesCarousel from "../../components/ImageCarousel/ImagesCarousel";
 import RadialCirle from "../../components/UI/RadialCircle";
 
 const Home = function () {
-  console.log("Render home");
-  const { home, homeMain, homeHeading, btnsContainer, homeMainContent } =
-    classes;
+  const { home, homeHeading, btnsContainer, homeMainContent } = classes;
   return (
     <div className={home}>
       <RadialCirle x="50" y="30" size="30" />

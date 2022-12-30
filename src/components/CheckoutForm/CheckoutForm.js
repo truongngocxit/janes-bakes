@@ -1,22 +1,9 @@
 import classes from "./CheckoutForm.module.css";
 import { useSelector } from "react-redux";
-import { createPortal } from "react-dom";
-import { useState } from "react";
-import Overlay from "../UI/Overlay";
-import OrderConfirmModal from "../OrderConfirmModal/OrderConfirmModal";
 
-const CheckoutForm = function () {
+const CheckoutForm = function ({ onOpenConfirmModal }) {
   const totalPrice = useSelector((state) => state.cart.totalPrice);
   const totalQuantity = useSelector((state) => state.cart.totalQuantity);
-  const [showConfirmModal, setShowConfirmModal] = useState(false);
-
-  const handleOpenConfirmModal = function () {
-    setShowConfirmModal(true);
-  };
-
-  const handleCloseConfirmModal = function () {
-    setShowConfirmModal(false);
-  };
 
   const {
     checkoutForm,
@@ -44,22 +31,11 @@ const CheckoutForm = function () {
         </div>
 
         <div>
-          <button className={checkoutBtn} onClick={handleOpenConfirmModal}>
+          <button className={checkoutBtn} onClick={onOpenConfirmModal}>
             Proceed
           </button>
         </div>
       </form>
-
-      {showConfirmModal &&
-        createPortal(
-          <OrderConfirmModal onClose={handleCloseConfirmModal} />,
-          document.getElementById("overlay-root")
-        )}
-      {showConfirmModal &&
-        createPortal(
-          <Overlay onClick={handleCloseConfirmModal} />,
-          document.getElementById("overlay-root")
-        )}
     </>
   );
 };

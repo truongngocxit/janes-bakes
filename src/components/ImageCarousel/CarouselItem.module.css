@@ -5,6 +5,7 @@
   object-fit: contain;
   max-width: 30rem;
   max-height: 15rem;
+  cursor: pointer;
 }
 
 .carouselItemContainer::before {

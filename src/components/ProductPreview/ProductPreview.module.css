@@ -121,6 +121,7 @@
   grid-template-columns: 1fr 1fr 1fr;
   height: 4rem;
   width: 12rem;
+  overflow: hidden;
 }
 .quantityControl input {
   width: 100%;
@@ -137,6 +138,7 @@
 
 .quantityControl input:focus {
   outline: none;
+  box-shadow: inset 0 0 0 0.3rem var(--color-tint-3);
 }
 
 /* BUTTOn */
@@ -147,8 +149,11 @@
   font-family: inherit;
   font-size: 1.8rem;
   font-weight: 500;
-  /* border: 0.1rem solid var(--color-primary);
-  border-radius: var(--border-radius); */
+  cursor: pointer;
+}
+
+.quantityControl button:hover {
+  background-color: var(--color-tint-3);
 }
 
 .productPreviewActions {

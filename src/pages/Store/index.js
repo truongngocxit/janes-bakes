@@ -5,15 +5,10 @@ import StoreFront from "../../components/StoreFront/StoreFront";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-const Store = function () {
+const Store = function ({ tag }) {
   const navigate = useNavigate();
   const [letterQuery, setLetterQuery] = useState("");
-  const [tagQuery, setTagQuery] = useState("all");
-  const [showPreview, setShowPreview] = useState(false);
-
-  const handleShowPreview = function () {
-    setShowPreview(true);
-  };
+  const [tagQuery, setTagQuery] = useState(tag || "all");
 
   //Modify url query params
   let urlParams = `?tag=${tagQuery}`;

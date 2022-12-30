@@ -1,0 +1,46 @@
+.orderReceipt {
+  grid-column: 1 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.allOrders {
+  width: 100%;
+  padding-right: 1rem;
+  height: 50%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.orderQuantity,
+.orderPrice {
+  justify-self: end;
+}
+
+.orderSummary {
+  width: 90%;
+}
+
+.orderTotal,
+.orderDate {
+  display: flex;
+  justify-content: space-between;
+  font-size: 2rem;
+  font-weight: 700;
+  align-items: flex-end;
+}
+
+.orderDate p,
+.orderTotal p {
+  font-size: 1.6rem;
+  color: var(--color-gray-light-2);
+}
+
+.orderDate h4,
+.orderTotal h4 {
+  font-size: 2rem;
+}

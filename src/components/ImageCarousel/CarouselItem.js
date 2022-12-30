@@ -1,7 +1,9 @@
 import classes from "./CarouselItem.module.css";
 import RightArrowSVG from "../UI/RightArrowSVG";
+import { Link } from "react-router-dom";
 
-const CarouselItem = function ({ carouselImageSrc, cakeName }) {
+const CarouselItem = function ({ carouselImageSrc, cakeName, to }) {
+  console.log(to);
   const {
     carouselItemContainer,
     carouselItemImage,
@@ -9,15 +11,16 @@ const CarouselItem = function ({ carouselImageSrc, cakeName }) {
     rightArrow,
   } = classes;
   return (
-    <div className={carouselItemContainer}>
+    <Link className={carouselItemContainer} to={`/store?tag=cheesecake`}>
       <img
         className={carouselItemImage}
         src={carouselImageSrc}
         loading="lazy"
+        alt={carouselItemName}
       />
       <p className={carouselItemName}>{cakeName}</p>
       <RightArrowSVG className={rightArrow} />
-    </div>
+    </Link>
   );
 };
 

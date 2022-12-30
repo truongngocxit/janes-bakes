@@ -1,0 +1,80 @@
+.orderSuccess {
+  width: 100%;
+  margin-top: 5rem;
+  grid-column: 1 / -1;
+  grid-row: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  gap: 2rem;
+}
+.mascot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+}
+
+.mascot svg {
+  width: 24rem;
+}
+
+.orderSuccessMessage {
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+.orderSuccessMessage h2 {
+  width: 70%;
+  font-size: 3.2rem;
+  color: var(--color-primary);
+}
+
+.orderSuccessMessage p {
+  font-size: 1.8rem;
+}
+
+.navigate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.6rem;
+  text-align: center;
+}
+
+.navigate a {
+  padding: 1.5rem 4rem;
+  border: none;
+  border-radius: var(--border-radius);
+  position: relative;
+  cursor: pointer;
+  transition: all 0.4s;
+  text-decoration: none;
+  background-color: var(--color-primary);
+  font-size: 1.6rem;
+  font-family: inherit;
+  color: #fff;
+}
+
+.navigate a::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  border-radius: var(--border-radius);
+  top: 0;
+  left: 0;
+  background-color: var(--color-primary);
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.navigate a:hover::before {
+  filter: blur(0.5rem);
+}
+
+.navigate p {
+  font-size: 1.6rem;
+}

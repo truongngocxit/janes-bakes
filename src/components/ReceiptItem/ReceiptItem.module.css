@@ -1,0 +1,15 @@
+.order {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  border-bottom: 0.05rem solid var(--color-gray-light-3);
+}
+
+.orderName,
+.orderPrice {
+  font-size: 1.6rem;
+}
+
+.orderNumber,
+.orderQuantity {
+  font-size: 1.4rem;
+}
