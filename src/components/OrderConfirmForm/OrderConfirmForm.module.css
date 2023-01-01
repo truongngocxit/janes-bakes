@@ -6,10 +6,16 @@
   grid-template-columns: repeat(2, 1fr);
 }
 
+.darkMode.orderForm input,
+.darkMode.orderForm textarea {
+  background-color: rgba(255, 204, 213, 0.2);
+  color: #fff;
+}
+
 .orderForm label {
   display: block;
   font-size: 1.6rem;
-  color: var(--color-gray-light-2);
+  color: inherit;
 }
 
 .twoColInput input,
@@ -21,15 +27,15 @@
   grid-column: span 2;
 }
 
-/* .twoColInput input.inputInvalid,
-  .oneColInput input.inputInvalid,
-  .oneColInput textarea.inputInvalid {
-    background-color: var(--color-tint-4);
-  } */
-
 .twoColInput.inputInvalid input,
 .oneColInput.inputInvalid input {
-  background-color: var(--color-tint-4);
+  background-color: rgba(255, 117, 143 0.5);
+  color: #f00000;
+}
+
+.darkMode .twoColInput.inputInvalid input,
+.darkMode .oneColInput.inputInvalid input {
+  background-color: var(--color-tint-1);
 }
 
 .twoColInput.inputInvalid label,

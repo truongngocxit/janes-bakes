@@ -1,33 +1,13 @@
 export default function Facebook({ className }) {
   return (
     <svg
-      width="47"
-      height="47"
-      viewBox="0 0 47 47"
-      fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
+      viewBox="0 0 512 512"
     >
       <path
-        d="M45.1842 13.2734V32.9108C45.1842 39.6892 39.6892 45.1842 32.9108 45.1842H13.2734C6.49499 45.1842 1 39.6892 1 32.9108V13.2734C1 6.49499 6.49499 1 13.2734 1H32.9108C39.6892 1 45.1842 6.49499 45.1842 13.2734Z"
-        stroke="#FF4D6D"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M20.6375 45.1843C20.6375 37.8202 20.6375 30.4562 20.6375 23.0921C20.6375 17.7225 21.8648 13.2734 30.4562 13.2734"
-        stroke="#FF4D6D"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M15.728 25.5469H20.6374H30.4561"
-        stroke="#FF4D6D"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d="M480 257.35c0-123.7-100.3-224-224-224s-224 100.3-224 224c0 111.8 81.9 204.47 189 221.29V322.12h-56.89v-64.77H221V208c0-56.13 33.45-87.16 84.61-87.16 24.51 0 50.15 4.38 50.15 4.38v55.13H327.5c-27.81 0-36.51 17.26-36.51 35v42h62.12l-9.92 64.77H291v156.54c107.1-16.81 189-109.48 189-221.31z"
+        fillRule="evenodd"
       />
     </svg>
   );

@@ -20,6 +20,10 @@
   transition: all 0.4s;
 }
 
+.darkMode.carouselItemContainer::before {
+  background: linear-gradient(to top, var(--color-primary), transparent 70%);
+}
+
 .carouselItemContainer:hover::before {
   background: var(--color-primary);
 }
@@ -38,12 +42,13 @@
   bottom: 10%;
   color: #fff;
   position: absolute;
-  transform: translateY(0);
+  /* transform: translateY(0); */
   transition: all 0.4s;
 }
 
 .carouselItemContainer:hover .carouselItemName {
-  transform: translateY(-190%);
+  /* transform: translateY(-190%); */
+  bottom: 65%;
 }
 
 .rightArrow {
@@ -60,7 +65,7 @@
 }
 
 .carouselItemContainer:hover .rightArrow {
-  transform: translateX(650%);
+  left: 80%;
   opacity: 1;
 }
 

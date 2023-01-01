@@ -14,6 +14,11 @@
   transition: all 0.3s;
 }
 
+.productPreview.darkMode {
+  background-color: var(--color-dark-primary);
+  color: #fff;
+}
+
 .productPreviewBeforeAdd {
   display: flex;
   flex-direction: column;
@@ -134,7 +139,12 @@
   border-left: 0.1rem solid var(--color-tint-1);
   border-right: 0.1rem solid var(--color-tint-1);
   font-family: inherit;
+  color: inherit;
 }
+
+/* .darkMode .quantityControl input {
+  color: #fff;
+} */
 
 .quantityControl input:focus {
   outline: none;
@@ -150,10 +160,19 @@
   font-size: 1.8rem;
   font-weight: 500;
   cursor: pointer;
+  color: inherit;
 }
+
+/* .darkMode .quantityControl button {
+  color: #fff;
+} */
 
 .quantityControl button:hover {
   background-color: var(--color-tint-3);
+}
+
+.darkMode .quantityControl button:hover {
+  background-color: rgba(255, 204, 213, 0.3);
 }
 
 .productPreviewActions {

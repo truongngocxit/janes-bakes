@@ -3,7 +3,8 @@ import CloseIcon from "../UI/CloseSVG";
 import Check from "../UI/CheckSVG";
 import { useDispatch } from "react-redux";
 import { cartActions } from "../../reduxStore/cart";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { darkModeContext } from "../../context/theme-context";
 
 const ProductPreview = function ({
   name,
@@ -13,6 +14,7 @@ const ProductPreview = function ({
   id,
   onClosePreview,
 }) {
+  const { darkModeIsOn } = useContext(darkModeContext);
   const [quantity, setQuantity] = useState(1);
   const [cartDidAdd, setCartDidAdd] = useState(false);
   const dispatch = useDispatch();
@@ -54,11 +56,16 @@ const ProductPreview = function ({
     quantityControl,
     productPreviewBeforeAdd,
     productPreviewAfterAdd,
+    darkMode,
   } = classes;
 
   if (cartDidAdd)
     return (
-      <div className={`${productPreview} ${productPreviewAfterAdd}`}>
+      <div
+        className={`${productPreview} ${
+          darkModeIsOn ? darkMode : ""
+        } ${productPreviewAfterAdd}`}
+      >
         <Check />
         <p>Items is successfully added to cart</p>
       </div>
@@ -66,7 +73,11 @@ const ProductPreview = function ({
 
   if (!cartDidAdd)
     return (
-      <div className={`${productPreview} ${productPreviewBeforeAdd}`}>
+      <div
+        className={`${productPreview} ${
+          darkModeIsOn ? darkMode : ""
+        } ${productPreviewBeforeAdd}`}
+      >
         <div className={closeIcon} onClick={onClosePreview}>
           <CloseIcon />
         </div>

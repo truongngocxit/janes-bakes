@@ -12,6 +12,10 @@
   position: relative;
 }
 
+.darkMode.footerContainer {
+  background-color: var(--color-dark-primary);
+}
+
 .logoSection {
   display: flex;
   flex-direction: column;
@@ -60,16 +64,23 @@
 
 .socialIcons {
   display: flex;
-  gap: 1rem;
-}
-
-.socialIcons > * {
-  height: 3.6rem;
-  width: 3.6rem;
-  stroke-width: 0.1rem;
+  gap: 2rem;
 }
 
 .socialIcon {
+  height: 4rem;
+  width: 4rem;
+  stroke-width: 0.1rem;
+  fill: var(--color-primary);
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.socialIcon:hover {
+  padding: 0.75rem;
+  background-color: var(--color-primary);
+  fill: #fff;
 }
 
 .copyrightSection {

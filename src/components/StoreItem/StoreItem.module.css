@@ -8,6 +8,15 @@
   cursor: pointer;
 }
 
+.darkMode.productItemContainer {
+  border: 0.1rem solid var(--color-primary);
+  background-color: rgba(255, 204, 213, 0.2);
+}
+
+.darkMode.productItemContainer:hover {
+  box-shadow: 0 0 0 0.2rem var(--color-tint-3);
+}
+
 .productItemContainer:hover {
   box-shadow: 0 0 0 0.5rem var(--color-tint-3);
 }
@@ -36,18 +45,19 @@
 .productDescription {
   grid-column: 1 / -1;
   font-size: 2rem;
+}
+
+.productDescription h3 {
   color: var(--color-primary);
 }
 
 .productDescription p {
   font-size: 1.6rem;
-  color: var(--color-gray-light-2);
 }
 
 .productPrice {
   font-size: 2.4rem;
   font-weight: 600;
-  color: var(--color-gray-light-2);
 }
 
 .productPrice span {

@@ -16,6 +16,11 @@
   animation: slidingUp 0.3s ease-in;
 }
 
+.darkMode.orderConfirm {
+  background-color: var(--color-dark-primary);
+  color: #fff;
+}
+
 .closeBtn {
   position: absolute;
   top: 2rem;

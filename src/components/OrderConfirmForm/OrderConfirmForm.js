@@ -2,8 +2,11 @@ import classes from "./OrderConfirmForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import useInput from "../../custom-hooks/use-input";
 import { cartActions } from "../../reduxStore/cart";
+import { useContext } from "react";
+import { darkModeContext } from "../../context/theme-context";
 
 const OrderConfirmForm = function ({ onHasSubmitOrder, onIsSubmittingOrder }) {
+  const { darkModeIsOn } = useContext(darkModeContext);
   const items = useSelector((state) => state.cart.items);
   const dispatch = useDispatch();
   const {
@@ -95,10 +98,14 @@ const OrderConfirmForm = function ({ onHasSubmitOrder, onIsSubmittingOrder }) {
     formBtn,
     inputError,
     inputInvalid,
+    darkMode,
   } = classes;
 
   return (
-    <form className={orderForm} onSubmit={submitOrderInfo}>
+    <form
+      className={`${orderForm} ${darkModeIsOn ? darkMode : ""}`}
+      onSubmit={submitOrderInfo}
+    >
       <div className={`${twoColInput} ${fNameIsInvalid ? inputInvalid : ""}`}>
         <label htmlFor="fName">First Name</label>
         {fNameIsInvalid && <p className={inputError}>First name is empty!</p>}

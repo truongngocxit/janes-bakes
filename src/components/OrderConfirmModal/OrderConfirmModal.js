@@ -1,23 +1,26 @@
 import classes from "./OrderConfirmModal.module.css";
 import CloseSVG from "../UI/CloseSVG";
 import { useSelector } from "react-redux";
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { darkModeContext } from "../../context/theme-context";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import OrderReceipt from "../OrderReceipt/OrderReceipt";
 import OrderSuccess from "../OrderSuccess/OrderSuccess";
 import OrderConfirmForm from "../OrderConfirmForm/OrderConfirmForm";
 
 const OrderConfirmModal = function ({ onClose }) {
+  const { darkModeIsOn } = useContext(darkModeContext);
   const [hasSubmitOrder, setHasSubmitOrder] = useState(false);
   const [isSubmittingOrder, setIsSubmittingOrder] = useState(false);
   const allItems = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-  const { orderConfirm, closeBtn, loading, receipt, confirmForm } = classes;
+  const { orderConfirm, closeBtn, loading, receipt, confirmForm, darkMode } =
+    classes;
   const handleHasSubmitOrder = function () {
     setHasSubmitOrder(true);
   };
   return (
-    <div className={orderConfirm}>
+    <div className={`${orderConfirm} ${darkModeIsOn ? darkMode : ""}`}>
       <div className={closeBtn} onClick={onClose}>
         <CloseSVG />
       </div>

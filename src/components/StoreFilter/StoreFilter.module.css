@@ -2,7 +2,6 @@
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: #fff;
 }
 
 .cosmetic {
@@ -31,7 +30,14 @@
   cursor: pointer;
 }
 
-.filterItem {
+.darkMode.filterItem:hover {
+  background-color: rgba(255, 204, 213, 0.4);
+  color: var(--color-primary);
+}
+
+.darkMode.filterItemActive {
+  background-color: rgba(255, 204, 213, 0.4);
+  color: var(--color-primary);
 }
 
 .filterItem:hover {
@@ -45,7 +51,6 @@
 .filterItem span {
   text-decoration: none;
   font-size: 1.8rem;
-  color: var(--color-gray-light-2);
   /* margin-top: 0.5rem; */
 }
 

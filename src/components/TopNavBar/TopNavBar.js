@@ -5,10 +5,12 @@ import HomeSVG from "../UI/HomeSVG";
 import StoreSVG from "../UI/StoreSVG";
 import CartSVG from "../UI/CartSVG";
 import { useSelector } from "react-redux";
+import { useContext } from "react";
+import { darkModeContext } from "../../context/theme-context";
 
 const TopNavBar = function ({ hasBackground = false }) {
   const itemsQuantity = useSelector((state) => state.cart.totalQuantity);
-
+  const { darkModeIsOn } = useContext(darkModeContext);
   const {
     navBar,
     navBarLogo,
@@ -27,7 +29,7 @@ const TopNavBar = function ({ hasBackground = false }) {
   };
   return (
     <nav
-      className={`${navBar} ${darkMode} ${
+      className={`${navBar} ${darkModeIsOn ? darkMode : ""} ${
         hasBackground ? navBarBackground : ""
       }`}
     >

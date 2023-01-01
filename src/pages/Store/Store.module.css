@@ -13,7 +13,10 @@
   flex-direction: column;
   gap: 3rem;
   padding-top: 3rem;
-  /* height: 100%; */
+}
+
+.darkMode.storeMenu {
+  border-right: 0.1rem solid var(--color-primary);
 }
 
 .searchForm {

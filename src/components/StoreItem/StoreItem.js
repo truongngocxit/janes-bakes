@@ -13,6 +13,7 @@ const StoreItem = function ({ name, url, description, price, id }) {
     productPrice,
     productDescription,
     productAddBtn,
+    darkMode,
   } = classes;
 
   const handleOpenPreview = function () {
@@ -25,7 +26,10 @@ const StoreItem = function ({ name, url, description, price, id }) {
 
   return (
     <>
-      <li className={productItemContainer} onClick={handleOpenPreview}>
+      <li
+        className={`${productItemContainer} ${darkMode}`}
+        onClick={handleOpenPreview}
+      >
         <div className={productImage}>
           <img src={url} alt={name} loading="lazy" />
         </div>

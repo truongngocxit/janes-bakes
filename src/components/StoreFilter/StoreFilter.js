@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import Filter from "../UI/FilterSVG";
 import { useState } from "react";
 import Overlay from "../UI/Overlay";
+import { useContext } from "react";
+import { darkModeContext } from "../../context/theme-context";
 
 const StoreFilter = function ({ tagValue, filterByTag, className }) {
   const navigate = useNavigate();
@@ -19,7 +21,14 @@ const StoreFilter = function ({ tagValue, filterByTag, className }) {
     navigate(`?tag=${event.target.value}`);
   };
 
-  const { filterList, filterIcon, filterListOpen, filterListClosed } = classes;
+  const {
+    filterList,
+    filterIcon,
+    filterListOpen,
+    filterListClosed,
+    filterItem,
+    darkMode,
+  } = classes;
 
   return (
     <>
@@ -43,6 +52,7 @@ const StoreFilter = function ({ tagValue, filterByTag, className }) {
             checkedFilter={tagValue}
             onChange={handleSelectFilter}
             onClick={handleCloseFilterList}
+            className={`${filterItem}`}
           />
         ))}
       </form>
@@ -56,7 +66,6 @@ export default StoreFilter;
 const allFilters = [
   { name: "all", label: "All" },
   { name: "cheesecake", label: "Cheesecakes" },
-
   { name: "cookies", label: "Cookies" },
   { name: "seasonal", label: "Seasonal" },
   { name: "others", label: "Others" },
@@ -81,11 +90,14 @@ const FilterItem = function ({
   checkedFilter,
   onChange,
   onClick,
+  className,
 }) {
-  const { filterItem, cakeIcon, filterLabel, filterItemActive } = classes;
+  const { darkModeIsOn } = useContext(darkModeContext);
+  const { cakeIcon, filterLabel, filterItemActive, filterItem, darkMode } =
+    classes;
   return (
     <div
-      className={`${filterItem} ${
+      className={`${filterItem} ${darkModeIsOn ? darkMode : ""} ${
         checkedFilter === name ? filterItemActive : ""
       }`}
       onClick={onClick}

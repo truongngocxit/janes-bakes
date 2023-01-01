@@ -6,6 +6,7 @@
   text-decoration: none;
   width: 100%;
   text-align: center;
+  z-index: 2;
 }
 
 .btnLarge {
@@ -25,7 +26,7 @@
 }
 
 .btnSub {
-  background-color: #fff;
+  background-color: transparent;
   box-shadow: inset 0 0 0 0.2rem var(--color-primary);
 }
 

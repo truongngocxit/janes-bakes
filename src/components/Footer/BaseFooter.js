@@ -5,8 +5,11 @@ import Facebook from "../UI/FacebookSVG";
 import FooterNavLink from "./FooterNavLink";
 import { useDispatch } from "react-redux";
 import { footerActions } from "../../reduxStore/footer-display";
+import { useContext } from "react";
+import { darkModeContext } from "../../context/theme-context";
 
 const Footer = function ({ addedFooterClassName }) {
+  const { darkModeIsOn } = useContext(darkModeContext);
   const dispatch = useDispatch();
   const handleCloseFooter = function () {
     dispatch(footerActions.offFooter());
@@ -20,9 +23,15 @@ const Footer = function ({ addedFooterClassName }) {
     copyrightSection,
     navContainer,
     socialIcons,
+    socialIcon,
+    darkMode,
   } = classes;
   return (
-    <div className={`${footerContainer} ${addedFooterClassName}`}>
+    <div
+      className={`${footerContainer} ${
+        darkModeIsOn ? darkMode : ""
+      } ${addedFooterClassName}`}
+    >
       <div className={logoSection}>
         <MainLogoSVG className={footerLogo} />
         <h2>Jane's Bakes</h2>
@@ -50,8 +59,22 @@ const Footer = function ({ addedFooterClassName }) {
       <nav className={otherChannelsSection}>
         <h3>Other Channels</h3>
         <div className={socialIcons}>
-          <Facebook />
-          <Instagram />
+          <a
+            className={socialIcon}
+            href="https://www.facebook.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Facebook />
+          </a>
+          <a
+            className={socialIcon}
+            href="https://www.instagram.com/"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <Instagram />
+          </a>
         </div>
       </nav>
       <div className={copyrightSection}>

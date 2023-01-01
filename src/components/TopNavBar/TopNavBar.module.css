@@ -5,6 +5,7 @@
   align-items: center;
   box-shadow: none;
   background-color: transparent;
+  transition: all 0.3s;
 }
 
 .navBar.darkMode {
@@ -57,7 +58,11 @@
 .navLink:hover {
   background-color: var(--color-tint-3);
   color: var(--color-primary);
-  /* border-radius: 50%; */
+}
+
+.darkMode .navLink:hover {
+  background-color: rgb(238, 238, 238, 0.1);
+  color: var(--color-primary);
 }
 
 .navLink svg {
@@ -68,6 +73,11 @@
   background-color: var(--color-tint-3);
   color: var(--color-primary);
   border-bottom: 0.2rem solid var(--color-primary);
+}
+
+.darkMode .activeNavLink {
+  background-color: transparent;
+  border-bottom: 0.5rem solid var(--color-primary);
 }
 
 .cartQuantity {

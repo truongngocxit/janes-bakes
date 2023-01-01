@@ -4,8 +4,18 @@
   grid-template-rows: 8rem 1fr 8rem;
   overflow: hidden;
   position: relative;
+  background-color: transparent;
+  transition: all 0.3s;
+  color: var(--color-gray-light-2);
+}
+
+.darkMode.pageLayout {
+  color: #fff;
+}
+
+.darkMode {
+  background-color: var(--color-dark-primary);
 }
 
 .pageBody {
-  overflow-y: scroll;
 }
