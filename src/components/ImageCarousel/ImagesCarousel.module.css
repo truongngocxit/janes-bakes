@@ -15,10 +15,44 @@
 
 @media only screen and (max-width: 28.125em) {
   .carouselContainer {
-    grid-template-columns: repeat(4, 1fr);
     width: 400%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     padding: 0;
-    justify-content: center;
+    justify-items: center;
+    align-items: center;
     gap: 0;
+    animation: infiniteCarousel cubic-bezier(0, 1, 0, 1) 12s infinite;
+  }
+
+  .carouselContainer:hover {
+    animation-play-state: paused;
+  }
+}
+
+@keyframes infiniteCarousel {
+  0%,
+  3% {
+    transform: translateX(0%);
+  }
+
+  22%,
+  27% {
+    transform: translateX(-25%);
+  }
+
+  47%,
+  52% {
+    transform: translateX(-50%);
+  }
+
+  72%,
+  77% {
+    transform: translateX(-75%);
+  }
+
+  98%,
+  100% {
+    transform: translateX(-0%);
   }
 }

@@ -8,6 +8,7 @@ import { useContext } from "react";
 import { darkModeContext } from "../../context/theme-context";
 
 const StoreFilter = function ({ tagValue, filterByTag, className }) {
+  const { darkModeIsOn } = useContext(darkModeContext);
   const navigate = useNavigate();
   const [filterListIsOpen, setFilterListIsOpen] = useState(false);
   const handleToggleFilterList = function () {
@@ -37,7 +38,7 @@ const StoreFilter = function ({ tagValue, filterByTag, className }) {
       </div>
 
       <form
-        className={`${filterList} ${className} ${
+        className={`${filterList} ${darkModeIsOn ? darkMode : ""} ${
           filterListIsOpen ? filterListOpen : filterListClosed
         }`}
       >

@@ -1,10 +1,12 @@
 import classes from "./StoreItem.module.css";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import ProductPreview from "../ProductPreview/ProductPreview";
 import Overlay from "../UI/Overlay";
+import { darkModeContext } from "../../context/theme-context";
 
 const StoreItem = function ({ name, url, description, price, id }) {
+  const { darkModeIsOn } = useContext(darkModeContext);
   const [showPreview, setShowPreview] = useState(false);
   const {
     productItemContainer,
@@ -27,7 +29,7 @@ const StoreItem = function ({ name, url, description, price, id }) {
   return (
     <>
       <li
-        className={`${productItemContainer} ${darkMode}`}
+        className={`${productItemContainer} ${darkModeIsOn ? darkMode : ""}`}
         onClick={handleOpenPreview}
       >
         <div className={productImage}>

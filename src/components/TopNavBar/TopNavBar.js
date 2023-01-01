@@ -36,7 +36,7 @@ const TopNavBar = function ({ hasBackground = false }) {
       <NavLink className={navBarLogo} to="/">
         <MainLogoSVG className={mainLogo} />
 
-        <h2 className={logoName}>Jane's Bakes</h2>
+        <h2 className={logoName}>Jane Bakes</h2>
       </NavLink>
       <div className={navLinks}>
         <NavLink className={navLinkStyle} to="/">

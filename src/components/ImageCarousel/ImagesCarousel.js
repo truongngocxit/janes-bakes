@@ -1,9 +1,10 @@
 import classes from "./ImagesCarousel.module.css";
 import CarouselItem from "./CarouselItem";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 
 const ImagesCarousel = function () {
   const [cakeCategories, setCakeCategories] = useState([]);
+
   useEffect(() => {
     const fetchCakeCategories = async function () {
       const response = await fetch(
@@ -22,6 +23,7 @@ const ImagesCarousel = function () {
 
     fetchCakeCategories();
   }, []);
+
   const { carouselContainer } = classes;
   return (
     <div className={carouselContainer}>

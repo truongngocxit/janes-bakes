@@ -34,7 +34,7 @@ const Footer = function ({ addedFooterClassName }) {
     >
       <div className={logoSection}>
         <MainLogoSVG className={footerLogo} />
-        <h2>Jane's Bakes</h2>
+        <h2>Jane Bakes</h2>
       </div>
       <nav className={navSection}>
         <h3>Navigations</h3>
