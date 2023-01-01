@@ -1,7 +1,6 @@
 .orderForm {
-  grid-column: 3 / -1;
   display: grid;
-  width: 80%;
+  width: 100%;
   justify-self: center;
   gap: 1.5rem;
   grid-template-columns: repeat(2, 1fr);

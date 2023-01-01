@@ -19,13 +19,18 @@ const TopNavBar = function ({ hasBackground = false }) {
     navLink,
     cartQuantity,
     activeNavLink,
+    darkMode,
   } = classes;
 
   const navLinkStyle = function ({ isActive }) {
     return isActive ? `${navLink} ${activeNavLink}` : navLink;
   };
   return (
-    <nav className={`${navBar} ${hasBackground ? navBarBackground : ""}`}>
+    <nav
+      className={`${navBar} ${darkMode} ${
+        hasBackground ? navBarBackground : ""
+      }`}
+    >
       <NavLink className={navBarLogo} to="/">
         <MainLogoSVG className={mainLogo} />
 
@@ -45,7 +50,6 @@ const TopNavBar = function ({ hasBackground = false }) {
           <CartSVG />
         </NavLink>
       </div>
-      {/* <CartButton /> */}
     </nav>
   );
 };

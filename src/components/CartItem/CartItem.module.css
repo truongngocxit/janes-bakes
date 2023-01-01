@@ -4,9 +4,9 @@
   grid-template-columns: minmax(min-content, 15rem) repeat(2, 1fr);
   grid-template-rows: repeat(2, auto);
   grid-auto-rows: 12rem;
-  box-shadow: var(--box-shadow);
+  /* box-shadow: var(--box-shadow); */
   border-radius: var(--border-radius);
-  border: 0.05rem solid var(--color-gray-light-4);
+  /* border: 0.05rem solid var(--color-gray-light-4); */
   font-size: 1.6rem;
   align-items: center;
   column-gap: 2rem;
@@ -31,11 +31,12 @@
 
 .cartItemInfo {
   grid-column: 2 / -1;
-  padding-top: 1.5rem;
+  /* padding-top: 1.5rem; */
+  padding-right: 3rem;
 }
 
 .cartItemInfo h3 {
-  font-size: 2.4rem;
+  font-size: 2rem;
 }
 
 .quantityAdjust {
@@ -43,7 +44,7 @@
   display: flex;
   align-items: center;
   gap: 1.5rem;
-  padding-bottom: 1.5rem;
+  /* padding-bottom: 1.5rem; */
 }
 
 .quantityAdjust button {
@@ -70,9 +71,9 @@
 }
 
 .cartItemPrice {
-  padding-bottom: 1.5rem;
+  /* padding-bottom: 1.5rem; */
   grid-column: 3;
-  font-size: 2.4rem;
+  font-size: 2rem;
   justify-self: end;
   font-weight: 400;
   margin-right: 2rem;

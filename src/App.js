@@ -13,11 +13,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="store" element={<Store />} />
         <Route path="checkout" element={<Checkout />} />
-        <Route
-          path="about"
-          element={<About />}
-          onEnter={() => console.log("Enter About")}
-        />
+        <Route path="about" element={<About />} />
         <Route path="*" element={<Error404 />} />
       </Routes>
     </PageLayout>

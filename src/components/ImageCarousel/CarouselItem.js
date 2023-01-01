@@ -1,17 +1,23 @@
 import classes from "./CarouselItem.module.css";
 import RightArrowSVG from "../UI/RightArrowSVG";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CarouselItem = function ({ carouselImageSrc, cakeName, to }) {
-  console.log(to);
+  const navigate = useNavigate();
   const {
     carouselItemContainer,
     carouselItemImage,
     carouselItemName,
     rightArrow,
   } = classes;
+
+  const handleNavigateToCategory = function () {
+    navigate(`/store?tag=${to}`, {
+      state: { tag: to },
+    });
+  };
   return (
-    <Link className={carouselItemContainer} to={`/store?tag=cheesecake`}>
+    <div className={carouselItemContainer} onClick={handleNavigateToCategory}>
       <img
         className={carouselItemImage}
         src={carouselImageSrc}
@@ -20,7 +26,7 @@ const CarouselItem = function ({ carouselImageSrc, cakeName, to }) {
       />
       <p className={carouselItemName}>{cakeName}</p>
       <RightArrowSVG className={rightArrow} />
-    </Link>
+    </div>
   );
 };
 

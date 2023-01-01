@@ -2,30 +2,43 @@ import classes from "./Store.module.css";
 import SearchForm from "../../components/SearchForm.js/SearchForm";
 import StoreFilter from "../../components/StoreFilter/StoreFilter";
 import StoreFront from "../../components/StoreFront/StoreFront";
-import { useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
+import { useState } from "react";
 
-const Store = function ({ tag }) {
-  const navigate = useNavigate();
+const Store = function () {
+  const { state } = useLocation();
+
   const [letterQuery, setLetterQuery] = useState("");
-  const [tagQuery, setTagQuery] = useState(tag || "all");
+  const [tagQuery, setTagQuery] = useState(state?.tag || "all");
 
-  //Modify url query params
-  let urlParams = `?tag=${tagQuery}`;
-  if (letterQuery.trim() !== "") urlParams += `&${letterQuery}`;
-
-  useEffect(() => {
-    navigate(urlParams);
-  }, [navigate, urlParams]);
-
-  const { storeContainer, storeMenu } = classes;
+  const {
+    storeContainer,
+    storeMenu,
+    storeFront,
+    searchForm,
+    filterSection,
+    filterSelect,
+  } = classes;
   return (
     <div className={storeContainer}>
       <menu className={storeMenu}>
-        <SearchForm filterByLetter={setLetterQuery} filterValue={letterQuery} />
-        <StoreFilter filterByTag={setTagQuery} tagValue={tagQuery} />
+        <div className={searchForm}>
+          <SearchForm
+            filterByLetter={setLetterQuery}
+            filterValue={letterQuery}
+          />
+        </div>
+        <div className={filterSection}>
+          <StoreFilter
+            filterByTag={setTagQuery}
+            tagValue={tagQuery}
+            className={filterSelect}
+          />
+        </div>
       </menu>
-      <StoreFront letterFilter={letterQuery} tagFilter={tagQuery} />
+      <div className={storeFront}>
+        <StoreFront letterFilter={letterQuery} tagFilter={tagQuery} />
+      </div>
     </div>
   );
 };

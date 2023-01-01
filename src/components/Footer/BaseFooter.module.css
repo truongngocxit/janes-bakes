@@ -3,16 +3,13 @@
   width: 100%;
   height: 70%;
   background-color: #fff;
-  /* box-shadow: var(--box-shadow-up); */
   border-radius: 0.8rem 0.8rem 0 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  padding: 8rem 6rem 3rem 6rem;
+  padding: 10rem 6rem 3rem 6rem;
   justify-items: center;
   row-gap: 8rem;
   position: relative;
-  /* Position */
-  /* transition: all 0.3s; */
 }
 
 .logoSection {
@@ -20,16 +17,17 @@
   flex-direction: column;
   align-items: center;
   /* justify-content: center; */
-  gap: 2rem;
+  margin-top: 2rem;
+  gap: 1rem;
 }
 
 .footerLogo {
-  width: 8rem;
-  height: 8rem;
+  width: 4rem;
+  height: 4rem;
 }
 
 .logoSection h2 {
-  font-size: 3.6rem;
+  font-size: 2.8rem;
   color: var(--color-primary);
 }
 
@@ -78,4 +76,18 @@
   grid-column: 1 / -1;
   align-self: end;
   font-size: 1.6rem;
+}
+
+@media only screen and (max-width: 43.75em) {
+  .footerContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+    padding: 10rem 4rem 3rem 4rem;
+  }
+
+  .logoSection {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    flex-direction: row;
+  }
 }

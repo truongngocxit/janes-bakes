@@ -1,10 +1,23 @@
 .btnContainer {
-  padding: 2rem 6rem;
   border-radius: var(--border-radius);
   position: relative;
   cursor: pointer;
   transition: all 0.4s;
   text-decoration: none;
+  width: 100%;
+  text-align: center;
+}
+
+.btnLarge {
+  padding: 2rem 6rem;
+}
+
+.btnMedium {
+  padding: 1.5rem 4rem;
+}
+
+.btnSmall {
+  padding: 1rem 3rem;
 }
 
 .btnMain {

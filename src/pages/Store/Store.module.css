@@ -16,4 +16,27 @@
   /* height: 100%; */
 }
 
+.searchForm {
+  padding-right: 4rem;
+}
+
 /* END REFACTOR */
+
+@media (max-width: 43.75em) {
+  .storeContainer {
+    grid-template-columns: 1fr;
+    grid-template-rows: min-content;
+  }
+  .storeMenu {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 6rem 1rem 4rem;
+    position: relative;
+  }
+  .searchForm {
+    width: 100%;
+    padding-right: 0;
+  }
+}

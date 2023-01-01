@@ -202,3 +202,23 @@
 .closeIcon svg {
   stroke: var(--color-primary);
 }
+
+@media (max-width: 75em) {
+  .productPreview {
+    width: 50%;
+  }
+}
+
+@media (max-width: 43.75em) {
+  .productPreview {
+    width: 65%;
+  }
+}
+
+@media (max-width: 29.375em) {
+  .productPreview {
+    width: 85%;
+  }
+}
+
+/*  */

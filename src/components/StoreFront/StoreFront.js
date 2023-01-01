@@ -2,6 +2,7 @@ import classes from "./StoreFront.module.css";
 import StoreItem from "../StoreItem/StoreItem";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import { useState, useEffect } from "react";
+import SadFace from "../UI/SadFace";
 
 const StoreFront = function ({ letterFilter, tagFilter }) {
   const [isLoading, setIsLoading] = useState(false);
@@ -61,7 +62,12 @@ const StoreFront = function ({ letterFilter, tagFilter }) {
     });
 
   if (!isLoading && !error && filteredProducts.length === 0) {
-    return <div className={message}>No content found</div>;
+    return (
+      <div className={message}>
+        <SadFace />
+        <p>No cakes found. Please try another query ;{")"}</p>
+      </div>
+    );
   }
 
   if (!isLoading && !error && filteredProducts.length > 0) {

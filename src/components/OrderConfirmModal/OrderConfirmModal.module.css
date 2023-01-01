@@ -5,12 +5,13 @@
   bottom: 0;
   position: fixed;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: 2fr 3fr;
   background-color: #fff;
   grid-auto-rows: min-content;
   z-index: 999;
   padding: 3rem 12rem;
-  row-gap: 2rem;
+  row-gap: 4rem;
+  column-gap: 2rem;
   transform: translateY(0);
   animation: slidingUp 0.3s ease-in;
 }
@@ -42,4 +43,39 @@
   grid-column: 1 / -1;
   grid-row: 1 / -1;
   justify-self: center;
+}
+
+.confirmForm {
+  grid-column: 2 / -1;
+  width: 90%;
+  justify-self: end;
+}
+
+.receipt {
+  grid-column: 1 / 2;
+}
+
+@media (max-width: 48em) {
+  .orderConfirm {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .confirmForm {
+    grid-column: 2 / -1;
+    width: 100%;
+    justify-self: end;
+  }
+}
+
+@media (max-width: 40.625em) {
+  .orderConfirm {
+    padding: 3rem 6rem;
+  }
+}
+
+@media (max-width: 29.375em) {
+  .orderConfirm {
+    padding: 3rem;
+  }
 }

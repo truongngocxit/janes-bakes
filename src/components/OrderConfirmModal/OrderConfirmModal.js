@@ -12,7 +12,7 @@ const OrderConfirmModal = function ({ onClose }) {
   const [isSubmittingOrder, setIsSubmittingOrder] = useState(false);
   const allItems = useSelector((state) => state.cart.items);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
-  const { orderConfirm, closeBtn, loading } = classes;
+  const { orderConfirm, closeBtn, loading, receipt, confirmForm } = classes;
   const handleHasSubmitOrder = function () {
     setHasSubmitOrder(true);
   };
@@ -26,12 +26,16 @@ const OrderConfirmModal = function ({ onClose }) {
       {!hasSubmitOrder && !isSubmittingOrder && (
         <>
           <h1>Hi, you have order these products:</h1>
-          <OrderReceipt orderItems={allItems} totalPrice={totalPrice} />
-          <OrderConfirmForm
-            onClose={onClose}
-            onHasSubmitOrder={handleHasSubmitOrder}
-            onIsSubmittingOrder={setIsSubmittingOrder}
-          />
+          <div className={receipt}>
+            <OrderReceipt orderItems={allItems} totalPrice={totalPrice} />
+          </div>
+          <div className={confirmForm}>
+            <OrderConfirmForm
+              onClose={onClose}
+              onHasSubmitOrder={handleHasSubmitOrder}
+              onIsSubmittingOrder={setIsSubmittingOrder}
+            />
+          </div>
         </>
       )}
     </div>

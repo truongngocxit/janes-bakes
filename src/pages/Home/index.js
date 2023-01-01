@@ -4,18 +4,26 @@ import ImagesCarousel from "../../components/ImageCarousel/ImagesCarousel";
 import RadialCirle from "../../components/UI/RadialCircle";
 
 const Home = function () {
-  const { home, homeHeading, btnsContainer, homeMainContent } = classes;
+  const { homePage, homeHeading, btnsContainer, homeMain, shopBtn, aboutBtn } =
+    classes;
   return (
-    <div className={home}>
+    <div className={homePage}>
       <RadialCirle x="50" y="30" size="30" />
       <RadialCirle x="5" y="50" size="20" />
       <RadialCirle x="80" y="10" size="20" />
 
-      <div className={homeMainContent}>
+      <div className={homeMain}>
         <h1 className={homeHeading}>Bake with Love</h1>
         <div className={btnsContainer}>
-          <GeneralButton to="store">Shop now</GeneralButton>
-          <GeneralButton to="about" isMainBtn={false}>
+          <GeneralButton to="store" type="large" className={shopBtn}>
+            Shop now
+          </GeneralButton>
+          <GeneralButton
+            to="about"
+            isMainBtn={false}
+            type="large"
+            className={aboutBtn}
+          >
             About me
           </GeneralButton>
         </div>

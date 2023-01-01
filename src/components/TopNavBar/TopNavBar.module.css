@@ -1,12 +1,15 @@
 .navBar {
-  /* height: 8rem; */
-  padding: 0 10rem;
+  padding: 0 8rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   box-shadow: none;
   background-color: transparent;
+}
+
+.navBar.darkMode {
+  background-color: var(--color-dark-primary);
+  border-bottom: 0.1rem solid var(--color-primary);
 }
 
 .navBarBackground {
@@ -84,6 +87,13 @@
   line-height: 0;
   top: 1.5rem;
   right: 1.5rem;
-  /* top: -10%;
-  right: -10%; */
+}
+
+@media only screen and (max-width: 40.625em) {
+  .navBar {
+    justify-content: center;
+  }
+  .navBarLogo {
+    display: none;
+  }
 }

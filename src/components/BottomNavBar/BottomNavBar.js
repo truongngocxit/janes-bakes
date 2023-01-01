@@ -9,9 +9,10 @@ const BottomNavBar = function () {
   const handleOpenFooter = function () {
     dispatch(footerActions.onFooter());
   };
-  const { bottomNavContainer, iconContainer, hamburgerIcon } = classes;
+  const { bottomNavContainer, iconContainer, hamburgerIcon, darkMode } =
+    classes;
   return (
-    <div className={bottomNavContainer}>
+    <div className={`${bottomNavContainer} ${darkMode}`}>
       <div className={iconContainer} onClick={handleOpenFooter}>
         <Hamburger className={hamburgerIcon} />
       </div>

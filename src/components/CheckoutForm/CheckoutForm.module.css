@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  width: 75%;
+  width: 80%;
 }
 
 .checkoutInput > * {
@@ -75,5 +75,8 @@
   cursor: pointer;
 }
 
-.checkoutBtn:disabled {
+@media (max-width: 64em) {
+  .checkoutForm {
+    width: 100%;
+  }
 }

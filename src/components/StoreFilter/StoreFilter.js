@@ -1,28 +1,53 @@
 import classes from "./StoreFilter.module.css";
 import Cake from "../UI/CakeSVG";
+import { useNavigate } from "react-router-dom";
+import Filter from "../UI/FilterSVG";
+import { useState } from "react";
+import Overlay from "../UI/Overlay";
 
-const StoreFilter = function ({ filterByTag, tagValue }) {
+const StoreFilter = function ({ tagValue, filterByTag, className }) {
+  const navigate = useNavigate();
+  const [filterListIsOpen, setFilterListIsOpen] = useState(false);
+  const handleToggleFilterList = function () {
+    setFilterListIsOpen((prevState) => !prevState);
+  };
+  const handleCloseFilterList = function () {
+    setFilterListIsOpen(false);
+  };
   const handleSelectFilter = function (event) {
     filterByTag(event.target.value);
+    navigate(`?tag=${event.target.value}`);
   };
 
-  const { filterList } = classes;
+  const { filterList, filterIcon, filterListOpen, filterListClosed } = classes;
 
   return (
-    <form className={filterList}>
-      <CosmeticEffect
-        position={allFilters.findIndex((f) => f.name === tagValue)}
-      />
-      {allFilters.map((f) => (
-        <FilterItem
-          key={f.name}
-          label={f.label}
-          name={f.name}
-          checkedFilter={tagValue}
-          onChange={handleSelectFilter}
+    <>
+      <div className={filterIcon} onClick={handleToggleFilterList}>
+        <Filter />
+      </div>
+
+      <form
+        className={`${filterList} ${className} ${
+          filterListIsOpen ? filterListOpen : filterListClosed
+        }`}
+      >
+        <CosmeticEffect
+          position={allFilters.findIndex((f) => f.name === tagValue)}
         />
-      ))}
-    </form>
+        {allFilters.map((f) => (
+          <FilterItem
+            key={f.name}
+            label={f.label}
+            name={f.name}
+            checkedFilter={tagValue}
+            onChange={handleSelectFilter}
+            onClick={handleCloseFilterList}
+          />
+        ))}
+      </form>
+      {filterListIsOpen && <Overlay onClick={handleToggleFilterList} />}
+    </>
   );
 };
 
@@ -50,13 +75,20 @@ const CosmeticEffect = function ({ position }) {
   );
 };
 
-const FilterItem = function ({ label, name, checkedFilter, onChange }) {
+const FilterItem = function ({
+  label,
+  name,
+  checkedFilter,
+  onChange,
+  onClick,
+}) {
   const { filterItem, cakeIcon, filterLabel, filterItemActive } = classes;
   return (
     <div
       className={`${filterItem} ${
         checkedFilter === name ? filterItemActive : ""
       }`}
+      onClick={onClick}
     >
       <label className={filterLabel} htmlFor={name}>
         <input

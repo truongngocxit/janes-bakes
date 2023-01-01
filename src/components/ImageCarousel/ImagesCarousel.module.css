@@ -1,5 +1,24 @@
 .carouselContainer {
-  display: flex;
+  display: grid;
   gap: 1rem;
+  padding: 0 6rem;
   justify-content: center;
+  justify-items: center;
+  width: 100%;
+  grid-template-columns: repeat(4, 1fr);
+}
+@media only screen and (max-width: 56.25em) {
+  .carouselContainer {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (max-width: 28.125em) {
+  .carouselContainer {
+    grid-template-columns: repeat(4, 1fr);
+    width: 400%;
+    padding: 0;
+    justify-content: center;
+    gap: 0;
+  }
 }
