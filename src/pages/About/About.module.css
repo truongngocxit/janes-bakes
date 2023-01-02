@@ -95,11 +95,20 @@
 .ctaSection {
   background-color: var(--color-primary);
   display: flex;
-  flex-direction: column;
-  gap: 4rem;
-  padding: 8rem 3rem;
+  gap: 6rem;
+  padding: 6rem 2rem;
   align-items: center;
   justify-content: center;
+}
+
+.ctaMascot {
+  width: 25rem;
+}
+
+.ctaMain {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
 
 .ctaText p,
@@ -110,7 +119,6 @@
 .ctaText {
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .ctaText p {
@@ -200,11 +208,6 @@
     transform: translateX(30%);
     opacity: 1;
   }
-
-  /* 100% {
-    transform: translateX(-100%);
-    opacity: 0;
-  } */
 }
 
 @media (max-width: 64em) {
@@ -216,6 +219,19 @@
 @media (max-width: 48em) {
   .heroImageContainer::after {
     height: 45%;
+  }
+}
+
+@media (max-width: 43.75em) {
+  .ctaSection {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 3rem 1.5rem;
+  }
+
+  .ctaMain {
+    align-items: center;
+    text-align: center;
   }
 }
 

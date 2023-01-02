@@ -2,14 +2,39 @@ import classes from "./StoreFront.module.css";
 import StoreItem from "../StoreItem/StoreItem";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import SadFace from "../UI/SadFace";
+import { useEffect, useState } from "react";
 
-const StoreFront = function ({
-  letterFilter,
-  tagFilter,
-  products,
-  isLoading,
-  error,
-}) {
+const StoreFront = function ({ letterFilter, tagFilter }) {
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    const requestStoreItems = async function () {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const response = await fetch(
+          `https://janes-bakes-default-rtdb.asia-southeast1.firebasedatabase.app/productImages.json`
+        );
+
+        if (!response.ok)
+          throw new Error("Failed loading data 😭. Please retry😉");
+        const data = await response.json();
+
+        const cleansedData = Object.entries(data).map((entry) => ({
+          id: entry[0],
+          ...entry[1],
+        }));
+
+        setProducts(cleansedData);
+      } catch (error) {
+        setError(error.message);
+      }
+      setIsLoading(false);
+    };
+    requestStoreItems();
+  }, []);
+
   const { storeFront, message } = classes;
 
   if (isLoading) {
@@ -26,8 +51,8 @@ const StoreFront = function ({
   const filteredProducts = products
     .filter(
       (p) =>
-        p.name.toLowerCase().includes(letterFilter) ||
-        p.tag.includes(letterFilter)
+        p.name.toLowerCase().includes(letterFilter.toLowerCase()) ||
+        p.tag.includes(letterFilter.toLowerCase())
     )
     .filter((p) => {
       if (tagFilter === "all") return p;

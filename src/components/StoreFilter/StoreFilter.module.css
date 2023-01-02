@@ -9,59 +9,20 @@
   background-color: var(--color-dark-primary);
 }
 
-/* .cosmetic {
-  content: "";
-  display: block;
-  height: 20%;
-  width: 0.5rem;
-  border-radius: var(--border-radius);
-  background-color: var(--color-primary);
-  left: 0;
-  position: absolute;
-  transition: all 0.3s ease-in;
-} */
-
 .filterList input {
   visibility: hidden;
 }
 
-/* .cakeIcon {
-  height: 2.2rem;
-  width: 2.2rem;
-  stroke-width: 0.1rem;
-  stroke: var(--color-primary);
+.loadingSpinner {
+  align-self: center;
+  justify-self: center;
 }
 
-.filterLabel {
-  display: flex;
-  align-items: center;
-  gap: 3rem;
-  padding: 1.5rem 0 1.5rem 2rem;
-  cursor: pointer;
+.errorMessage {
+  align-self: center;
+  justify-self: center;
+  font-size: 1.6rem;
 }
-
-.darkMode.filterItem:hover {
-  background-color: rgba(255, 204, 213, 0.4);
-  color: var(--color-primary);
-}
-
-.darkMode.filterItemActive {
-  background-color: rgba(255, 204, 213, 0.4);
-  color: var(--color-primary);
-}
-
-.filterItem:hover {
-  background-color: var(--color-tint-3);
-}
-
-.filterItemActive {
-  background-color: var(--color-tint-3);
-}
-
-.filterItem span {
-  text-decoration: none;
-  font-size: 1.8rem;
-} */
 
 .filterIcon {
   width: 5rem;

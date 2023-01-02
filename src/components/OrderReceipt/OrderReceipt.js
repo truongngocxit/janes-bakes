@@ -1,7 +1,10 @@
 import classes from "./OrderReceipt.module.css";
 import ReceiptItem from "../ReceiptItem/ReceiptItem";
+import { useContext } from "react";
+import { darkModeContext } from "../../context/theme-context";
 
 const OrderReceipt = function ({ orderItems, totalPrice }) {
+  const { darkModeIsOn } = useContext(darkModeContext);
   const today = new Date().toLocaleDateString("vi-vn");
   const {
     orderReceipt,
@@ -10,9 +13,10 @@ const OrderReceipt = function ({ orderItems, totalPrice }) {
     orderSummary,
     orderTotal,
     allOrdersScroll,
+    darkMode,
   } = classes;
   return (
-    <div className={orderReceipt}>
+    <div className={`${orderReceipt} ${darkModeIsOn ? darkMode : ""}`}>
       <div
         className={`${allOrders} ${
           orderItems.length > 5 ? allOrdersScroll : ""

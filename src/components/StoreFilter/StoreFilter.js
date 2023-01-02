@@ -2,23 +2,45 @@ import classes from "./StoreFilter.module.css";
 import CosmeticEffect from "./CosmeticEffect";
 import { useNavigate } from "react-router-dom";
 import Filter from "../UI/FilterSVG";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import Overlay from "../UI/Overlay";
-import { useContext } from "react";
 import { darkModeContext } from "../../context/theme-context";
 import FilterItem from "./FilterItem";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
-const StoreFilter = function ({
-  tagValue,
-  filterByTag,
-  className,
-  products,
-  isLoading,
-  error,
-}) {
+const StoreFilter = function ({ tagValue, filterByTag, className }) {
   const { darkModeIsOn } = useContext(darkModeContext);
   const navigate = useNavigate();
   const [filterListIsOpen, setFilterListIsOpen] = useState(false);
+  const [filters, setFilters] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [requestError, setRequestError] = useState(null);
+
+  useEffect(() => {
+    const fetchFilterData = async function () {
+      setIsLoading(true);
+      setRequestError(null);
+      try {
+        const response = await fetch(
+          "https://janes-bakes-default-rtdb.asia-southeast1.firebasedatabase.app/categories.json"
+        );
+
+        if (!response.ok) throw new Error("Error fetching data");
+        const data = await response.json();
+
+        const cleansedData = Object.entries(data).map((entry) => ({
+          id: entry[0],
+          ...entry[1],
+        }));
+        setFilters(cleansedData);
+      } catch (error) {
+        setRequestError(error.message);
+      }
+      setIsLoading(false);
+    };
+
+    fetchFilterData();
+  }, []);
 
   const handleToggleFilterList = function () {
     setFilterListIsOpen((prevState) => !prevState);
@@ -37,8 +59,19 @@ const StoreFilter = function ({
     filterListOpen,
     filterListClosed,
     filterItem,
+    loadingSpinner,
+    errorMessage,
     darkMode,
   } = classes;
+
+  const allFilters = [
+    {
+      id: "00",
+      name: "All",
+      tag: "all",
+    },
+    ...filters,
+  ];
 
   return (
     <>
@@ -47,25 +80,34 @@ const StoreFilter = function ({
       </div>
 
       <form
-        className={`${filterList} ${darkModeIsOn ? darkMode : ""} ${
-          filterListIsOpen ? filterListOpen : filterListClosed
-        }`}
+        className={`${filterList} ${className} ${
+          darkModeIsOn ? darkMode : ""
+        } ${filterListIsOpen ? filterListOpen : filterListClosed}`}
       >
-        <CosmeticEffect
-          position={allFilters.findIndex((f) => f.name === tagValue)}
-          allFilters={allFilters}
-        />
-        {allFilters.map((f) => (
-          <FilterItem
-            key={f.name}
-            label={f.label}
-            name={f.name}
-            checkedFilter={tagValue}
-            onChange={handleSelectFilter}
-            onClick={handleCloseFilterList}
-            className={`${filterItem}`}
+        {isLoading && <LoadingSpinner className={loadingSpinner} />}
+        {!isLoading && requestError && (
+          <p className={errorMessage}>Error loading data</p>
+        )}
+        {filters.length > 0 && !isLoading && (
+          <CosmeticEffect
+            position={allFilters.findIndex((f) => f.tag === tagValue)}
+            allFilters={allFilters}
           />
-        ))}
+        )}
+        {filters.length > 0 &&
+          !isLoading &&
+          allFilters.map((f) => (
+            <FilterItem
+              key={f.id}
+              label={f.name}
+              name={f.tag}
+              checkedFilter={tagValue}
+              onChange={handleSelectFilter}
+              onClick={handleCloseFilterList}
+              className={`${filterItem}`}
+              darkModeIsOn={darkModeIsOn}
+            />
+          ))}
       </form>
       {filterListIsOpen && <Overlay onClick={handleToggleFilterList} />}
     </>
@@ -74,13 +116,13 @@ const StoreFilter = function ({
 
 export default StoreFilter;
 
-const allFilters = [
-  { name: "all", label: "All" },
-  { name: "cheesecake", label: "Cheesecakes" },
-  { name: "cookies", label: "Cookies" },
-  { name: "seasonal", label: "Seasonal" },
-  { name: "others", label: "Others" },
-];
+// const allFilters = [
+//   { name: "all", label: "All" },
+//   { name: "cheesecake", label: "Cheesecakes" },
+//   { name: "cookies", label: "Cookies" },
+//   { name: "seasonal", label: "Seasonal" },
+//   { name: "others", label: "Others" },
+// ];
 
 // const CosmeticEffect = function ({ position }) {
 //   const { cosmetic } = classes;

@@ -48,3 +48,8 @@
 .orderTotal h4 {
   font-size: 2rem;
 }
+
+.darkMode .orderDate p,
+.darkMode .orderTotal p {
+  color: var(--color-tint-3);
+}

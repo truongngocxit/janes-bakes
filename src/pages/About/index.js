@@ -7,6 +7,7 @@ import RightArrow from "../../components/UI/RightArrowSVG";
 import LoadingSpinner from "../../components/UI/LoadingSpinner";
 import { useState } from "react";
 import useInput from "../../custom-hooks/use-input";
+import MascotCTA from "../../components/UI/MascotCTA";
 
 const About = function () {
   const {
@@ -69,6 +70,8 @@ const About = function () {
     subsriptionMessage,
     missionHeading,
     allMissionItems,
+    ctaMascot,
+    ctaMain,
   } = classes;
   return (
     <div className={aboutPage}>
@@ -121,37 +124,46 @@ const About = function () {
         </div>
       </div>
       <div className={ctaSection}>
-        <div className={ctaText}>
-          <h2>Let's stay in touch</h2>
-          <p>
-            You will be the first to hear about my promotions and free giveaways
-          </p>
+        <div className={ctaMascot}>
+          <MascotCTA />
         </div>
-        {!isSending && !hasSubmitted && (
-          <form className={ctaForm} onSubmit={handleSubmitEmailSubscription}>
-            {inputEmailIsInvalid && (
-              <p className={invalidEmailMessage}>Invalid email format</p>
-            )}
-            <input
-              required
-              value={inputEmail}
-              onChange={handleEmailChange}
-              onBlur={handleEmailIsTouched}
-            />
-            <button type="submit">
-              <RightArrow className={rightArrow} />
-            </button>
-          </form>
-        )}
-        {isSending && <LoadingSpinner color="#fff" />}
-        {!isSending && errorSending && (
-          <p className={subsriptionMessage}>
-            Error sending data. Please try again.
-          </p>
-        )}
-        {!isSending && hasSubmitted && (
-          <p className={subsriptionMessage}>Thank you for submitting :{")"}.</p>
-        )}
+        <div className={ctaMain}>
+          <div className={ctaText}>
+            <h2>Let's stay in touch</h2>
+
+            <p>
+              You will be the first to hear about my promotions and free
+              giveaways
+            </p>
+          </div>
+          {!isSending && !hasSubmitted && (
+            <form className={ctaForm} onSubmit={handleSubmitEmailSubscription}>
+              {inputEmailIsInvalid && (
+                <p className={invalidEmailMessage}>Invalid email format</p>
+              )}
+              <input
+                required
+                value={inputEmail}
+                onChange={handleEmailChange}
+                onBlur={handleEmailIsTouched}
+              />
+              <button type="submit">
+                <RightArrow className={rightArrow} />
+              </button>
+            </form>
+          )}
+          {isSending && <LoadingSpinner color="#fff" />}
+          {!isSending && errorSending && (
+            <p className={subsriptionMessage}>
+              Error sending data. Please try again.
+            </p>
+          )}
+          {!isSending && hasSubmitted && (
+            <p className={subsriptionMessage}>
+              Thank you for submitting :{")"}.
+            </p>
+          )}
+        </div>
       </div>
     </div>
   );
