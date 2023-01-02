@@ -1,16 +1,17 @@
+.aboutPage {
+}
+
 .about {
+  height: calc(100vh - 16rem);
+  overflow-y: scroll;
   display: flex;
   flex-direction: column;
   gap: 10rem;
-  height: 100%;
-  overflow-y: scroll;
+  position: relative;
 }
 
 .heroSection {
   margin: 5rem 12rem 0 12rem;
-}
-
-.heroDescription {
 }
 
 .heroDescription h2,

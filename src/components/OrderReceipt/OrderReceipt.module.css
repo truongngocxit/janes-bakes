@@ -8,11 +8,16 @@
 .allOrders {
   width: 100%;
   padding-right: 1rem;
-  height: 50%;
-  overflow-y: scroll;
+  /* height: 20vh;
+  overflow-y: scroll; */
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+.allOrdersScroll {
+  height: 35vh;
+  overflow-y: scroll;
 }
 
 .orderQuantity,

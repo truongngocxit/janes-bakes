@@ -11,10 +11,14 @@ const SearchForm = function ({ filterByLetter, filterValue }) {
   const { formContainer, magGlass, darkMode } = classes;
   return (
     <form className={`${formContainer} ${darkModeIsOn ? darkMode : ""}`}>
-      <button>
+      <label htmlFor="search">
         <MagGlass className={magGlass} />
-      </button>
-      <input onChange={handleSearchQueryChange} value={filterValue} />
+      </label>
+      <input
+        id="search"
+        onChange={handleSearchQueryChange}
+        value={filterValue}
+      />
     </form>
   );
 };

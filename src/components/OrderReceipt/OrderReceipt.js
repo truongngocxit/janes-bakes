@@ -3,11 +3,21 @@ import ReceiptItem from "../ReceiptItem/ReceiptItem";
 
 const OrderReceipt = function ({ orderItems, totalPrice }) {
   const today = new Date().toLocaleDateString("vi-vn");
-  const { orderReceipt, orderDate, allOrders, orderSummary, orderTotal } =
-    classes;
+  const {
+    orderReceipt,
+    orderDate,
+    allOrders,
+    orderSummary,
+    orderTotal,
+    allOrdersScroll,
+  } = classes;
   return (
     <div className={orderReceipt}>
-      <div className={allOrders}>
+      <div
+        className={`${allOrders} ${
+          orderItems.length > 5 ? allOrdersScroll : ""
+        }`}
+      >
         {orderItems.map((item, index) => (
           <ReceiptItem
             index={index + 1}

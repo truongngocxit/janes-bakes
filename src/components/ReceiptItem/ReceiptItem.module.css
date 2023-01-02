@@ -13,3 +13,12 @@
 .orderQuantity {
   font-size: 1.4rem;
 }
+
+.orderPrice {
+  font-weight: 700;
+}
+
+.orderQuantity,
+.orderPrice {
+  justify-self: end;
+}

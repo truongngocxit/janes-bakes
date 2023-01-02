@@ -3,9 +3,6 @@ import NhuImage from "../../assets/nhu-photo.png";
 import Earth from "../../components/UI/EarthSVG";
 import Happy from "../../components/UI/HappySVG";
 import Heart from "../../components/UI/HeartSVG";
-import BaseFooter from "../../components/Footer/BaseFooter";
-import TopNavBar from "../../components/TopNavBar/TopNavBar";
-import { Fragment } from "react";
 
 const About = function () {
   const {
@@ -18,6 +15,7 @@ const About = function () {
     missionItem,
     ctaText,
     ctaForm,
+    aboutPage,
   } = classes;
   return (
     <div className={about}>

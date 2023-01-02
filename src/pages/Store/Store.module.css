@@ -1,8 +1,8 @@
-.storeContainer {
+.storePage {
   display: grid;
   grid-template-columns: minmax(min-content, 25vw) 1fr;
   grid-template-rows: 1fr;
-  height: 100%;
+  height: calc(100vh - 16rem);
 }
 
 /* STORE MENU */
@@ -26,9 +26,9 @@
 /* END REFACTOR */
 
 @media (max-width: 43.75em) {
-  .storeContainer {
+  .storePage {
     grid-template-columns: 1fr;
-    grid-template-rows: min-content;
+    /* grid-template-rows: min-content; */
   }
   .storeMenu {
     width: 100%;

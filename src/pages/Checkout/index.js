@@ -21,16 +21,18 @@ const Checkout = function () {
     setShowConfirmModal(false);
   };
   const {
-    checkout,
+    checkoutPage,
     checkoutContainer,
     checkoutFormContainer,
     cartSummaryHeading,
     backLink,
     emptyCartMessage,
+    cartSummary,
+    summaryScroll,
   } = classes;
   return (
     <>
-      <div className={checkout}>
+      <div className={checkoutPage}>
         {items.length > 0 && (
           <div className={checkoutContainer}>
             <div>
@@ -39,7 +41,13 @@ const Checkout = function () {
                 <span>Back to Shopping</span>
               </Link>
               <h1 className={cartSummaryHeading}>Your Cart</h1>
-              <CartSummary />
+              <div
+                className={`${cartSummary} ${
+                  items.length > 2 ? summaryScroll : ""
+                }`}
+              >
+                <CartSummary />
+              </div>
             </div>
             <div className={checkoutFormContainer}>
               <CheckoutForm

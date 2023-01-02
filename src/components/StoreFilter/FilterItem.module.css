@@ -1,0 +1,38 @@
+.cakeIcon {
+  height: 2.2rem;
+  width: 2.2rem;
+  stroke-width: 0.1rem;
+  stroke: var(--color-primary);
+}
+
+.filterLabel {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  padding: 1.5rem 0 1.5rem 2rem;
+  cursor: pointer;
+}
+
+.darkMode.filterItem:hover {
+  background-color: rgba(255, 204, 213, 0.4);
+  color: var(--color-primary);
+}
+
+.darkMode.filterItemActive {
+  background-color: rgba(255, 204, 213, 0.4);
+  color: var(--color-primary);
+}
+
+.filterItem:hover {
+  background-color: var(--color-tint-3);
+}
+
+.filterItemActive {
+  background-color: var(--color-tint-3);
+}
+
+.filterItem span {
+  text-decoration: none;
+  font-size: 1.8rem;
+  /* margin-top: 0.5rem; */
+}

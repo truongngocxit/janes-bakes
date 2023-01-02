@@ -9,22 +9,27 @@
   background-color: var(--color-dark-primary);
 }
 
-.cosmetic {
+/* .cosmetic {
   content: "";
   display: block;
   height: 20%;
   width: 0.5rem;
-  /* top: 5%; */
   border-radius: var(--border-radius);
   background-color: var(--color-primary);
   left: 0;
   position: absolute;
   transition: all 0.3s ease-in;
-  /* transform: translateY(100%); */
-}
+} */
 
 .filterList input {
   visibility: hidden;
+}
+
+/* .cakeIcon {
+  height: 2.2rem;
+  width: 2.2rem;
+  stroke-width: 0.1rem;
+  stroke: var(--color-primary);
 }
 
 .filterLabel {
@@ -56,15 +61,7 @@
 .filterItem span {
   text-decoration: none;
   font-size: 1.8rem;
-  /* margin-top: 0.5rem; */
-}
-
-.cakeIcon {
-  height: 2.2rem;
-  width: 2.2rem;
-  stroke-width: 0.1rem;
-  stroke: var(--color-primary);
-}
+} */
 
 .filterIcon {
   width: 5rem;

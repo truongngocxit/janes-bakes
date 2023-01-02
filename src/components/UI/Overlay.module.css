@@ -8,6 +8,7 @@
   backdrop-filter: blur(0.5rem);
   z-index: 20;
   transition: all 0.3s;
+  cursor: pointer;
 }
 
 /* .overlayOff {

@@ -4,12 +4,12 @@ import { useSelector } from "react-redux";
 import SadFace from "../UI/SadFace";
 import { Link } from "react-router-dom";
 
-const CartSummary = function () {
+const CartSummary = function ({ className }) {
   const { cartSummary, emptyCartMessage } = classes;
   const items = useSelector((state) => state.cart.items);
   return (
     <>
-      <div className={cartSummary}>
+      <div className={`${cartSummary} ${className}`}>
         {items.length > 0 &&
           items.map((i) => (
             <CartItem

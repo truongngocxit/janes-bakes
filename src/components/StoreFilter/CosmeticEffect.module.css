@@ -1,0 +1,11 @@
+.cosmetic {
+  content: "";
+  display: block;
+  height: 20%;
+  width: 0.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--color-primary);
+  left: 0;
+  position: absolute;
+  transition: all 0.3s ease-in;
+}
