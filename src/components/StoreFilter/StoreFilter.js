@@ -7,40 +7,29 @@ import Overlay from "../UI/Overlay";
 import { darkModeContext } from "../../context/theme-context";
 import FilterItem from "./FilterItem";
 import LoadingSpinner from "../UI/LoadingSpinner";
+import useFetch from "../../custom-hooks/use-fetch";
 
 const StoreFilter = function ({ tagValue, filterByTag, className }) {
   const { darkModeIsOn } = useContext(darkModeContext);
   const navigate = useNavigate();
   const [filterListIsOpen, setFilterListIsOpen] = useState(false);
   const [filters, setFilters] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
-  const [requestError, setRequestError] = useState(null);
+  const { isLoading, error: requestError, fetchData } = useFetch();
 
   useEffect(() => {
-    const fetchFilterData = async function () {
-      setIsLoading(true);
-      setRequestError(null);
-      try {
-        const response = await fetch(
-          "https://janes-bakes-default-rtdb.asia-southeast1.firebasedatabase.app/categories.json"
-        );
+    (async function () {
+      const returnedData = await fetchData(
+        "https://janes-bakes-default-rtdb.asia-southeast1.firebasedatabase.app/categories.json",
+        "Error fetching data"
+      );
 
-        if (!response.ok) throw new Error("Error fetching data");
-        const data = await response.json();
-
-        const cleansedData = Object.entries(data).map((entry) => ({
-          id: entry[0],
-          ...entry[1],
-        }));
-        setFilters(cleansedData);
-      } catch (error) {
-        setRequestError(error.message);
-      }
-      setIsLoading(false);
-    };
-
-    fetchFilterData();
-  }, []);
+      const cleansedData = Object.entries(returnedData).map((entry) => ({
+        id: entry[0],
+        ...entry[1],
+      }));
+      setFilters(cleansedData);
+    })();
+  }, [fetchData]);
 
   const handleToggleFilterList = function () {
     setFilterListIsOpen((prevState) => !prevState);
@@ -115,58 +104,3 @@ const StoreFilter = function ({ tagValue, filterByTag, className }) {
 };
 
 export default StoreFilter;
-
-// const allFilters = [
-//   { name: "all", label: "All" },
-//   { name: "cheesecake", label: "Cheesecakes" },
-//   { name: "cookies", label: "Cookies" },
-//   { name: "seasonal", label: "Seasonal" },
-//   { name: "others", label: "Others" },
-// ];
-
-// const CosmeticEffect = function ({ position }) {
-//   const { cosmetic } = classes;
-//   return (
-//     <div
-//       className={cosmetic}
-//       style={{
-//         transform: `translateY(${position * 100}%)`,
-//         height: `${100 / allFilters.length}%`,
-//       }}
-//     ></div>
-//   );
-// };
-
-// const FilterItem = function ({
-//   label,
-//   name,
-//   checkedFilter,
-//   onChange,
-//   onClick,
-//   className,
-// }) {
-//   const { darkModeIsOn } = useContext(darkModeContext);
-//   const { cakeIcon, filterLabel, filterItemActive, filterItem, darkMode } =
-//     classes;
-//   return (
-//     <div
-//       className={`${filterItem} ${darkModeIsOn ? darkMode : ""} ${
-//         checkedFilter === name ? filterItemActive : ""
-//       }`}
-//       onClick={onClick}
-//     >
-//       <label className={filterLabel} htmlFor={name}>
-//         <input
-//           type="radio"
-//           name="cakeFilter"
-//           value={name}
-//           id={name}
-//           checked={checkedFilter === { name }}
-//           onChange={onChange}
-//         />
-//         <Cake className={cakeIcon} />
-//         <span>{label}</span>
-//       </label>
-//     </div>
-//   );
-// };

@@ -1,40 +1,32 @@
 import classes from "./ImagesCarousel.module.css";
 import CarouselItem from "./CarouselItem";
 import LoadingSpinner from "../UI/LoadingSpinner";
-import { useEffect, useState } from "react";
+import { useEffect, useCallback, useState } from "react";
+import useFetch from "../../custom-hooks/use-fetch";
 
 const ImagesCarousel = function () {
   const [cakeCategories, setCakeCategories] = useState([]);
-  const [requestError, setRequestError] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const { isLoading, error: requestError, fetchData } = useFetch();
 
-  const fetchCakeCategories = async function () {
-    setRequestError(null);
-    setIsLoading(true);
-    try {
-      const response = await fetch(
-        "https://janes-bakes-default-rtdb.asia-southeast1.firebasedatabase.app/categories.json"
+  const fetchCakeCategories = useCallback(
+    async function () {
+      const returnedData = await fetchData(
+        "https://janes-bakes-default-rtdb.asia-southeast1.firebasedatabase.app/categories.json",
+        "Failed to fetch data"
       );
 
-      if (!response.ok) throw new Error("Failed to fetch data");
-
-      const data = await response.json();
-
-      const cleansedData = Object.entries(data).map((entry) => ({
+      const cleansedData = Object.entries(returnedData).map((entry) => ({
         id: entry[0],
         ...entry[1],
       }));
-
       setCakeCategories(cleansedData);
-    } catch (error) {
-      setRequestError(error.message);
-    }
-    setIsLoading(false);
-  };
+    },
+    [fetchData]
+  );
 
   useEffect(() => {
     fetchCakeCategories();
-  }, []);
+  }, [fetchCakeCategories]);
 
   const { carouselContainer, exception } = classes;
 

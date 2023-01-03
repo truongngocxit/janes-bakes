@@ -78,7 +78,7 @@ const Footer = function ({ addedFooterClassName }) {
         </div>
       </nav>
       <div className={copyrightSection}>
-        <p>©2022, Jane's Bakes. All rights reserved</p>
+        <p>©2022, Jane Bakes. All rights reserved</p>
       </div>
     </div>
   );

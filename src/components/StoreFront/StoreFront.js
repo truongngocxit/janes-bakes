@@ -3,37 +3,27 @@ import StoreItem from "../StoreItem/StoreItem";
 import LoadingSpinner from "../UI/LoadingSpinner";
 import SadFace from "../UI/SadFace";
 import { useEffect, useState } from "react";
+import useFetch from "../../custom-hooks/use-fetch";
 
 const StoreFront = function ({ letterFilter, tagFilter }) {
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [products, setProducts] = useState([]);
+
+  const { isLoading, error, fetchData } = useFetch();
+
   useEffect(() => {
-    const requestStoreItems = async function () {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const response = await fetch(
-          `https://janes-bakes-default-rtdb.asia-southeast1.firebasedatabase.app/productImages.json`
-        );
+    (async function () {
+      const returnedData = await fetchData(
+        "https://janes-bakes-default-rtdb.asia-southeast1.firebasedatabase.app/productImages.json",
+        "Failed loading data 😭. Please retry😉"
+      );
 
-        if (!response.ok)
-          throw new Error("Failed loading data 😭. Please retry😉");
-        const data = await response.json();
-
-        const cleansedData = Object.entries(data).map((entry) => ({
-          id: entry[0],
-          ...entry[1],
-        }));
-
-        setProducts(cleansedData);
-      } catch (error) {
-        setError(error.message);
-      }
-      setIsLoading(false);
-    };
-    requestStoreItems();
-  }, []);
+      const cleansedData = Object.entries(returnedData).map((entry) => ({
+        id: entry[0],
+        ...entry[1],
+      }));
+      setProducts(cleansedData);
+    })();
+  }, [fetchData]);
 
   const { storeFront, message } = classes;
 
